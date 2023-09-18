@@ -38,19 +38,22 @@ public class UFO_tracking : MonoBehaviour
 
         if (transform.position == target.transform.position)
         {
-            carried_check.carried = true;
+            carried_check.UFO_lifted = true;
             carrying_cattle = true;
-            target_position = escape.transform.position;
+            Invoke("Escape", 1.2f);
 
         }
-        if (transform.position == escape.transform.position)
-        {
-            carried_check.carried = false;
-            drop_check.dropped = true;
-            carrying_cattle = false;
-        }
+        //if (transform.position == escape.transform.position)
+        //{
+        //    carried_check.carried = false;
+        //    drop_check.dropped = true;
+        //    carrying_cattle = false;
+        //}
 
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
     }
-
+    void Escape()
+    {
+        target_position = escape.transform.position;
+    }
 }
