@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cattle
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX

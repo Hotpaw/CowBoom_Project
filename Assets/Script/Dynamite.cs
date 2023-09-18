@@ -6,15 +6,17 @@ public class Dynamite : MonoBehaviour
 {
     public float radius;
     public int damage;
+    public float timer;
     public ParticleSystem explosionParticle;
+    public GameObject fuse;
     
 
     // Start is called before the first frame update
     void Start()
     {
-        explosionParticle = GetComponent<ParticleSystem>();
+        fuse.SetActive(false);
 
-      
+
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class Dynamite : MonoBehaviour
         if(Input.GetKey(KeyCode.Space))
         {
             Explode();
+          
         }
     }
     public void Explode()
@@ -36,8 +39,8 @@ public class Dynamite : MonoBehaviour
                 collider.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
-        explosionParticle.Play();
-        gameObject.SetActive(false);
+        StartCoroutine(ExplotionTimed());
+      
     }
     void OnDrawGizmosSelected()
     {
@@ -45,4 +48,22 @@ public class Dynamite : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+   
+    IEnumerator ExplotionTimed()
+    {
+        fuse.SetActive(true);
+        yield return new WaitForSeconds(timer);
+        explosionParticle.Play();
+        yield return new WaitForSeconds(0.2f);
+        gameObject.SetActive(false);
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(collision.gameObject);
+            Explode();
+        }
+    }
+
 }
