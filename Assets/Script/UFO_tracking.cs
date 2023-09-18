@@ -10,8 +10,7 @@ public class UFO_tracking : MonoBehaviour
     public GameObject target;
     public GameObject escape;
     public GameObject child;
-    public cattle_script drop_check;
-    public cattle_script carried_check;
+    public cattle_script cattle_script;
     public float speed;
     public int ID;
     bool carrying_cattle = false;
@@ -38,7 +37,7 @@ public class UFO_tracking : MonoBehaviour
 
         if (transform.position == target.transform.position)
         {
-            carried_check.UFO_lifted = true;
+            cattle_script.UFO_lifted = true;
             carrying_cattle = true;
             Invoke("Escape", 1.2f);
 

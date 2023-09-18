@@ -18,6 +18,7 @@ public class cattle_script : MonoBehaviour
     void Start()
     {
         
+  
     }
 
     // Update is called once per frame
@@ -29,11 +30,14 @@ public class cattle_script : MonoBehaviour
 
         if (carried)
         {
-            transform.parent = alien.transform;
-            float pos_x = alien.position.x;
-            float pos_y = alien.position.y;
-            Vector2 relative_position = new Vector2(0, pos_y + y_offset);
-            transform.localPosition = relative_position;
+
+
+            float parent_y = transform.parent.position.y;
+            Vector2 Parent_pos = new Vector2(0,1);
+            transform.localPosition = Parent_pos;
+
+
+
 
         }
 
@@ -41,11 +45,10 @@ public class cattle_script : MonoBehaviour
         {
             if (dropped)
             {
-                float pos_x = alien.position.x;
-                float pos_y = alien.position.y;
-                Vector2 relative_position = new Vector2(pos_x, pos_y);
-                transform.position = relative_position;
+                
+                
                 dropped = false;
+                carried = false;
             }
 
             transform.SetParent(null);

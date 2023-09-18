@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien
       objectReference: {fileID: 0}
+    - target: {fileID: 1839041691868045058, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6612852685540074187, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
       propertyPath: child
       value: 
@@ -443,11 +447,11 @@ PrefabInstance:
       objectReference: {fileID: 1938168579}
     - target: {fileID: 8202637750254433870, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.1
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 8202637750254433870, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48
+      value: 2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8202637750254433870, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -538,6 +542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UFO_tractor_beam
       objectReference: {fileID: 0}
+    - target: {fileID: 6666453324939969809, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: child
       value: 
@@ -556,6 +564,10 @@ PrefabInstance:
       objectReference: {fileID: 1938168579}
     - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: carried_check
+      value: 
+      objectReference: {fileID: 1938168579}
+    - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+      propertyPath: cattle_script
       value: 
       objectReference: {fileID: 1938168579}
     m_RemovedComponents: []
