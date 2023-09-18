@@ -61,6 +61,17 @@ public class cattle_tracking : MonoBehaviour
     {
         catching = true;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision != null)
+        {
+            if (collision.gameObject.CompareTag("Cattle"))
+            {
+                // Insert code what happens when this object collides with a cattle
+                // Note, You must have a 2dTriggerCollider on both objects AND might need a rigidbody on either the cattle or alien
+            }
+        }
+    }
 
 
 
