@@ -7,8 +7,10 @@ public class cattle_script : MonoBehaviour
 {
     public bool carried = false;
     public bool dropped = false;
+    public bool UFO_lifted = false;
     public Transform alien;
     public Transform grass;
+    public Transform UFO;
     public float y_offset;
     public float speed;
 
@@ -49,7 +51,16 @@ public class cattle_script : MonoBehaviour
             transform.SetParent(null);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, grass.position, step);
+        if (UFO_lifted)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, UFO.position, step);
+        }
+
+
+        if(!UFO_lifted && !carried)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, grass.position, step);
+        }
 
     }
 }

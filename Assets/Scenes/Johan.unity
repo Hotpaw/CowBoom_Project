@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &417717577 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6221229244889884957, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+  m_PrefabInstance: {fileID: 3338548129437757368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &722172720 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8202637750254433870, guid: cac36187431aab24a98f0228ef32ded1, type: 3}
@@ -610,6 +615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cattle
       objectReference: {fileID: 0}
+    - target: {fileID: 7420888431540398809, guid: 746bfe71cd7e8954eb7027fcb5650104, type: 3}
+      propertyPath: UFO
+      value: 
+      objectReference: {fileID: 417717577}
     - target: {fileID: 7420888431540398809, guid: 746bfe71cd7e8954eb7027fcb5650104, type: 3}
       propertyPath: alien
       value: 
