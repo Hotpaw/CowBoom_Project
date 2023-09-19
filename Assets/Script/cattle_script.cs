@@ -56,7 +56,7 @@ public class cattle_script : MonoBehaviour
 
         if (UFO_lifted)
         {
-            transform.position = Vector2.MoveTowards(transform.position, UFO.position, step);
+            transform.position = Vector2.MoveTowards(transform.position, UFO.position, step * 0.3f);
         }
 
 
