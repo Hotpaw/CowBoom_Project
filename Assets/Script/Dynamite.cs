@@ -15,8 +15,14 @@ public class Dynamite : MonoBehaviour
     public Vector2 position;
     bool burning = false;
 
+    bool hasExploded = false;
+    bool ignitiated = false;
+
+
     AudioSource explosionSound;
     public AudioClip explosionSound2;
+
+    AudioSource burningSound;
 
 
     Rigidbody2D rb;
@@ -36,6 +42,7 @@ public class Dynamite : MonoBehaviour
 
         // get the sound for the explosion
         explosionSound = GetComponent<AudioSource>();
+        burningSound = GetComponent<AudioSource>();
         explosionSound.Stop();
 
 
@@ -43,41 +50,59 @@ public class Dynamite : MonoBehaviour
     }
     public void Explosion()
     {
+
         bool exploaded = false;
         if(exploaded == false)
         {
 
+
+
+        burningSound.Play();
+
+
+        explosionSound.PlayOneShot(explosionSound2);
+            
+        
+        hasExploded = true;
+
         Explode();
-
-
+        
         
         explosionParticle.Play();
-        explosionSound.Play();
+        
         
         Invoke("DestroyObject", 0.3f);
             exploaded = true;
         }
 
-        
     }
     public void DestroyObject()
     {
-        
         Destroy(gameObject);
+
     }
     // Update is called once per frame
     void Update()
     {
+        
         position = UnityEngine.Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         if (burning == true)
         {
             timer += Time.deltaTime;
             if (timer > 2)
             {
-                Explosion();
+
+                
+                
+                if (!hasExploded)
+                {
+                    Explosion();
+                }
                 
             }
         }
+
+        
     }
     public void TotalStop()
     {
@@ -92,20 +117,24 @@ public class Dynamite : MonoBehaviour
             if (collider.gameObject.CompareTag("Enemy") && collider != null)
             {
                
+
+                
+  
+
                 collider.GetComponent<cattle_tracking>().TakeDamage(damage);
 
                 
                
+
             }
             if (collider.gameObject.CompareTag("Dynamite"))
             {
                 collider.GetComponent<Dynamite>().fuse.SetActive(true);
                 collider.GetComponent<Dynamite>().burning = true;
                
-            }
+            }     
         }
-       
-      
+ 
     }
     void OnDrawGizmosSelected()
     {

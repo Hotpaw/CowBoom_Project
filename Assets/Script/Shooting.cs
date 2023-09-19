@@ -42,6 +42,7 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && timer > fireRate)
         {
+            
 
             shoot.Play();
 
