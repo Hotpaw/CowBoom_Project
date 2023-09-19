@@ -9,7 +9,7 @@ public class cattle_tracking : MonoBehaviour
 {
 
     public GameObject target;
-    public GameObject escape;
+    public Transform escape;
     public GameObject child;
     public GameObject farmer;
     public cattle_script cattle;
@@ -26,6 +26,8 @@ public class cattle_tracking : MonoBehaviour
         farmer = GameObject.FindGameObjectWithTag("Player");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindObjectOfType<cattle_script>();
+        int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
+        escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
     }
 
 
