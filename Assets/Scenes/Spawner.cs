@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer < 0)
+        if (timer > cooldown)
         {
             timer = 0;
             SpawnObject(spawnableObjects[0]);

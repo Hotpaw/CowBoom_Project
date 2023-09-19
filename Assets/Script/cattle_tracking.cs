@@ -69,7 +69,15 @@ public class cattle_tracking : MonoBehaviour
             Invoke("retrack", 2);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, target_position, step);
+        if (carried_check.carried && !carrying_cattle)
+        {
+            //transform.position = Vector2.MoveTowards(transform.position, target_position, step * 0.5f);
+
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target_position, step);
+        }
     }
 
 
