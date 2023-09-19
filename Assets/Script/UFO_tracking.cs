@@ -10,7 +10,7 @@ public class UFO_tracking : MonoBehaviour
     public GameObject target;
     public GameObject escape;
     public GameObject child;
-    public cattle_script cattle_script;
+    public cattle_script cattle;
     public float speed;
     public int ID;
     bool carrying_cattle = false;
@@ -19,7 +19,10 @@ public class UFO_tracking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        target = GameObject.FindGameObjectWithTag("Cattle");
+        child = GameObject.FindGameObjectWithTag("Cattle");
+        cattle = FindAnyObjectByType<cattle_script>();
+        speed = 0.8f;
     }
 
 
@@ -37,9 +40,9 @@ public class UFO_tracking : MonoBehaviour
 
         if (transform.position == target.transform.position)
         {
-            cattle_script.UFO_lifted = true;
+            cattle.UFO_lifted = true;
             carrying_cattle = true;
-            Invoke("Escape", 1.2f);
+            Invoke("Escape", 2.5f);
 
         }
         //if (transform.position == escape.transform.position)

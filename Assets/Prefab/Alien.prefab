@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8137506352383546548}
   - component: {fileID: 6524894041436580606}
   - component: {fileID: 8424174625427310398}
-  m_Layer: 0
+  - component: {fileID: -3216743677184344027}
+  m_Layer: 8
   m_Name: Alien
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,8 +52,8 @@ MonoBehaviour:
   target: {fileID: 0}
   escape: {fileID: 0}
   child: {fileID: 0}
-  drop_check: {fileID: 0}
-  carried_check: {fileID: 0}
+  farmer: {fileID: 0}
+  cattle: {fileID: 0}
   speed: 2
   ID: 0
 --- !u!70 &8137506352383546548
@@ -116,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &8424174625427310398
 Animator:
   serializedVersion: 5
@@ -138,6 +139,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3216743677184344027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839041691868045058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 827d07c67d3ad1d4b915b4f38ea7a5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  cattle: {fileID: 0}
+  bodyParts:
+  - {fileID: 291216867964420429, guid: 85c42a720d8c14f488e7c1b3e0435cc7, type: 3}
+  - {fileID: 461814149937141228, guid: ab91f6820303a5240b8b19b4b911347c, type: 3}
+  - {fileID: 3694504905135808025, guid: 3dfe438e9572f8744be78728bbd71ce1, type: 3}
+  - {fileID: 4107902253564340480, guid: 24e5fcbc1d1ed47478fcba18db06b322, type: 3}
+  - {fileID: 8254077593460267906, guid: e1bea09a60f2f3c4ca05868e5ae0ce4a, type: 3}
+  - {fileID: 3330679366633794198, guid: 4b95209c46b63564fafeec3e34560a3e, type: 3}
+  - {fileID: 2802400278085980541, guid: a81a482c80c970c4a9997cebd0bb9fd6, type: 3}
 --- !u!1 &3205447364484647438
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5121317765033517266}
   - component: {fileID: 6504152520525272253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien_Sprite_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

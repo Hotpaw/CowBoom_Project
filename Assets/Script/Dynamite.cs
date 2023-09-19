@@ -13,6 +13,7 @@ public class Dynamite : MonoBehaviour
     public ParticleSystem explosionParticle;
     public GameObject fuse;
     public Vector2 position;
+    bool burning = false;
 
     Rigidbody2D rb;
     Transform CurrentTarget;
@@ -25,22 +26,36 @@ public class Dynamite : MonoBehaviour
 
         position = UnityEngine.Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
 
-       
-
-
-        
         rb.AddForce(position * dynamiteSpeed, ForceMode2D.Force);
 
         Invoke("TotalStop",stopTimer);
+
        
 
-
     }
-
+    public void Explosion()
+    {
+        Explode();
+        explosionParticle.Play();
+        Invoke("DestroyObject", 0.3f);
+        
+    }
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
+    }
     // Update is called once per frame
     void Update()
     {
         position = UnityEngine.Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        if (burning == true)
+        {
+            timer += Time.deltaTime;
+            if (timer > 2)
+            {
+                Explosion();
+            }
+        }
     }
     public void TotalStop()
     {
@@ -52,9 +67,19 @@ public class Dynamite : MonoBehaviour
 
         foreach (Collider2D collider in Explosion)
         {
-            if (collider.gameObject.CompareTag("Enemy"))
+            if (collider.gameObject.CompareTag("Enemy") && collider != null)
             {
+               
                 collider.GetComponent<Enemy>().TakeDamage(damage);
+
+                
+               
+            }
+            if (collider.gameObject.CompareTag("Dynamite"))
+            {
+                collider.GetComponent<Dynamite>().fuse.SetActive(true);
+                collider.GetComponent<Dynamite>().burning = true;
+               
             }
         }
        
@@ -67,23 +92,19 @@ public class Dynamite : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radius);
     }
    
-    IEnumerator ExplotionTimed()
-    {
-        fuse.SetActive(true);
-        yield return new WaitForSeconds(timer);
-        Explode();
-        explosionParticle.Play();
-        yield return new WaitForSeconds(0.2f);
-        gameObject.SetActive(false);
-    }
+   
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        bool hit = false;
+        if (collision.gameObject.CompareTag("Bullet") && hit == false)
         {
-            StartCoroutine(ExplotionTimed());
+            hit = true;
+            fuse.SetActive(true);
+            burning = true;
             Destroy(collision.gameObject);
             
         }
     }
+   
 
 }

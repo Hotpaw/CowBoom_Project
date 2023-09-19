@@ -9,10 +9,10 @@ public class cattle_tracking : MonoBehaviour
 {
 
     public GameObject target;
-    public GameObject escape;
+    public Transform escape;
     public GameObject child;
-    public cattle_script drop_check;
-    public cattle_script carried_check;
+    public GameObject farmer;
+    public cattle_script cattle;
     public float speed;
     public int ID;
     bool carrying_cattle = false;
@@ -22,7 +22,12 @@ public class cattle_tracking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        target = GameObject.FindGameObjectWithTag("Cattle");
+        farmer = GameObject.FindGameObjectWithTag("Player");
+        child = GameObject.FindGameObjectWithTag("Cattle");
+        cattle = FindObjectOfType<cattle_script>();
+        int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
+        escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
     }
 
 
@@ -41,7 +46,7 @@ public class cattle_tracking : MonoBehaviour
 
         if (transform.position == target.transform.position && !carrying_cattle)
         {
-            carried_check.carried = true;
+            cattle.carried = true;
             carrying_cattle = true;
             catching = false;
             target_position = escape.transform.position;
@@ -63,15 +68,15 @@ public class cattle_tracking : MonoBehaviour
 
         if (transform.position == escape.transform.position) 
         {
-            carried_check.carried = false;
-            drop_check.dropped = true;
+            cattle.carried = false;
+            cattle.dropped = true;
             carrying_cattle=false;
             Invoke("retrack", 2);
         }
 
-        if (carried_check.carried && !carrying_cattle)
+        if (cattle.carried && !carrying_cattle)
         {
-            //transform.position = Vector2.MoveTowards(transform.position, target_position, step * 0.5f);
+            transform.position = Vector2.MoveTowards(transform.position, farmer.transform.position, step * 0.5f);
 
         }
         else
@@ -85,17 +90,7 @@ public class cattle_tracking : MonoBehaviour
     {
         catching = true;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision != null)
-        {
-            if (collision.gameObject.CompareTag("Cattle"))
-            {
-                // Insert code what happens when this object collides with a cattle
-                // Note, You must have a 2dTriggerCollider on both objects AND might need a rigidbody on either the cattle or alien
-            }
-        }
-    }
+
 
 
 
