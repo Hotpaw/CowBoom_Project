@@ -24,12 +24,13 @@ public class DynamiteAbility : MonoBehaviour
         transform.up = position;
 
 
-        if (Input.GetMouseButton(0) && timer > fireRate)
+        if (Input.GetKeyDown(KeyCode.Space) && timer > fireRate)
         {
 
 
             GameObject dynamiteClone = Instantiate(Dynamite, transform.position, Dynamite.transform.localRotation);
-            Vector2 DynamiteAim = position;
+            
+           
           
         }
 
