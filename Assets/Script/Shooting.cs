@@ -7,7 +7,9 @@ public class Shooting : MonoBehaviour
 
     public GameObject bullet;
     public GameObject Weapon;
-    public GameObject angle;
+    public GameObject shooting;
+    public GameObject shooting2;
+    public GameObject shooting3;
 
     public float fireRate = 3;
 
@@ -22,20 +24,25 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         Vector2 position = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        transform.right = position;
+        transform.up = position;
 
 
         if(Input.GetMouseButton(0) && timer > fireRate) 
         {
            
-        Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            Instantiate(bullet, shooting.transform.position, shooting.transform.rotation);
 
-            transform.up = transform.up - transform.right;
+            Instantiate(bullet, shooting2.transform.position, shooting2.transform.rotation);
 
-            Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            Instantiate(bullet, shooting3.transform.position, shooting3.transform.rotation);
 
-            transform.up = transform.right;
-            Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            //transform.up = transform.up - transform.right;
+
+            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+
+            //transform.up = transform.right;
+            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+
             timer = 0;
         }
 
