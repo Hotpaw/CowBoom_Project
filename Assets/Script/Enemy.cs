@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     public cattle_script cattle;
+    public GameObject[] bodyParts;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,16 @@ public class Enemy : MonoBehaviour
         if(health < 0)
         {
             cattle.carried = false;
+            BodyParts();
             gameObject.SetActive(false);
         }
     }
+    public void BodyParts()
+    {
+        foreach(var part in bodyParts)
+        {
+            Instantiate(part, transform.position, Quaternion.identity);
+        }
+    }
+
 }
