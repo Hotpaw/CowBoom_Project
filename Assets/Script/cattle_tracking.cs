@@ -123,8 +123,17 @@ public class cattle_tracking : MonoBehaviour
 
     public void Die()
     {
+        bool dead = false;
+        if (!dead)
+        {
         Invoke("kill_alien", 0.1f);
         Invoke("BodyParts", 0.1f);
+            dead = true;
+        }
+        else
+        {
+            return;
+        }
 
     }
     public void BodyParts()

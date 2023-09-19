@@ -43,6 +43,10 @@ public class Dynamite : MonoBehaviour
     }
     public void Explosion()
     {
+        bool exploaded = false;
+        if(exploaded == false)
+        {
+
         Explode();
 
 
@@ -51,6 +55,8 @@ public class Dynamite : MonoBehaviour
         explosionSound.Play();
         
         Invoke("DestroyObject", 0.3f);
+            exploaded = true;
+        }
 
         
     }
