@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6524894041436580606}
   - component: {fileID: 8424174625427310398}
   - component: {fileID: -3216743677184344027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Alien
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5121317765033517266}
   - component: {fileID: 6504152520525272253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: alien_Sprite_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

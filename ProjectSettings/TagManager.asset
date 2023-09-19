@@ -7,6 +7,7 @@ TagManager:
   - Cattle
   - Enemy
   - Bullet
+  - Dynamite
   layers:
   - Default
   - TransparentFX
@@ -16,11 +17,7 @@ TagManager:
   - UI
   - Player
   - Dynamite
-
-  - Alien
-
-  - PostProssesing
-
+  - Enemy
   - 
   - 
   - 

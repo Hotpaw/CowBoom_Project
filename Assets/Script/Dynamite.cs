@@ -37,7 +37,7 @@ public class Dynamite : MonoBehaviour
     {
         Explode();
         explosionParticle.Play();
-        Invoke("DestroyObject", 0.2f);
+        Invoke("DestroyObject", 0.3f);
         
     }
     public void DestroyObject()
@@ -73,6 +73,12 @@ public class Dynamite : MonoBehaviour
                 collider.GetComponent<Enemy>().TakeDamage(damage);
 
                 
+               
+            }
+            if (collider.gameObject.CompareTag("Dynamite"))
+            {
+                collider.GetComponent<Dynamite>().fuse.SetActive(true);
+                collider.GetComponent<Dynamite>().burning = true;
                
             }
         }
