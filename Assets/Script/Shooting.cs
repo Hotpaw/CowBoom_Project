@@ -73,7 +73,7 @@ public class Shooting : MonoBehaviour
                 transform.localScale = newScale;
                 flipped = true;
             }
-            Debug.Log("switched to right side");
+          
         }
         if (mouse.position.x < transform.position.x)
         {
@@ -84,7 +84,7 @@ public class Shooting : MonoBehaviour
                 transform.localScale = newScale;
                 flipped = false;
             }
-            Debug.Log("switched to left side");
+       
         }
     }
 

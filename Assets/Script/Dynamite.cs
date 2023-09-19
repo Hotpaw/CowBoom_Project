@@ -69,6 +69,7 @@ public class Dynamite : MonoBehaviour
    
     IEnumerator ExplotionTimed()
     {
+        Debug.Log("Exploding Initialized");
         fuse.SetActive(true);
         yield return new WaitForSeconds(timer);
         Explode();
@@ -78,8 +79,10 @@ public class Dynamite : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        bool hit = false;
+        if (collision.gameObject.CompareTag("Bullet") && hit == false)
         {
+            hit = true;
             StartCoroutine(ExplotionTimed());
             Destroy(collision.gameObject);
             
