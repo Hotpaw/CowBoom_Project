@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Cattle
   - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bullet
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

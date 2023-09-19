@@ -22,7 +22,7 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         Vector2 position = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        transform.up = position;
+        transform.right = position;
 
 
         if(Input.GetMouseButton(0) && timer > fireRate) 

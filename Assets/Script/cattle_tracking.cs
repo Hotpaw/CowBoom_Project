@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
@@ -15,7 +16,6 @@ public class cattle_tracking : MonoBehaviour
     public float speed;
     public int ID;
     bool carrying_cattle = false;
-    bool dropped_cattle = false;
     bool catching = true;
     Vector2 target_position;
 
@@ -38,14 +38,29 @@ public class cattle_tracking : MonoBehaviour
             target_position = target.transform.position;                     
         }
 
-        if (transform.position ==  target.transform.position)
+
+        if (transform.position == target.transform.position && !carrying_cattle)
         {
             carried_check.carried = true;
             carrying_cattle = true;
             catching = false;
             target_position = escape.transform.position;
+            target.transform.parent = transform.transform;
+
+            
 
         }
+
+        if (carrying_cattle)
+        {
+            //Vector2 relative_position = new Vector2(0, 1);
+            //target.transform.localPosition = relative_position;
+
+
+
+        }
+
+
         if (transform.position == escape.transform.position) 
         {
             carried_check.carried = false;
@@ -56,6 +71,7 @@ public class cattle_tracking : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
     }
+
 
     void retrack()
     {

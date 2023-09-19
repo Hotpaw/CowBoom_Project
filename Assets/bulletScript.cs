@@ -17,7 +17,7 @@ public class bulletScript : MonoBehaviour
     void Update()
     {
         transform.position += transform.up * bulletSpeed * Time.deltaTime;
-
+       
         Destroy(gameObject, 1);
     }
 
