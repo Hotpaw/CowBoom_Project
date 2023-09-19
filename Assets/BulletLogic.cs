@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour
+public class BulletLogic : MonoBehaviour
 {
-    public float bulletSpeed = 30;
-    float timer;
+    public float bulletSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +14,6 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.up * bulletSpeed * Time.deltaTime;
-       
-        Destroy(gameObject, 1);
-    }
-
     
+    }
 }

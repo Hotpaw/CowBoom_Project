@@ -22,11 +22,7 @@ public class Dynamite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Space))
-        {
-            Explode();
-          
-        }
+        
     }
     public void Explode()
     {
@@ -39,7 +35,7 @@ public class Dynamite : MonoBehaviour
                 collider.GetComponent<Enemy>().TakeDamage(damage);
             }
         }
-        StartCoroutine(ExplotionTimed());
+       
       
     }
     void OnDrawGizmosSelected()
@@ -53,6 +49,7 @@ public class Dynamite : MonoBehaviour
     {
         fuse.SetActive(true);
         yield return new WaitForSeconds(timer);
+        Explode();
         explosionParticle.Play();
         yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
@@ -61,8 +58,9 @@ public class Dynamite : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            StartCoroutine(ExplotionTimed());
             Destroy(collision.gameObject);
-            Explode();
+            
         }
     }
 

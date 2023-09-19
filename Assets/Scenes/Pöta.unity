@@ -5152,7 +5152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 4.42
-  damage: 10
+  damage: 11
   timer: 2
   explosionParticle: {fileID: 2144298988}
   fuse: {fileID: 717972235}
@@ -5217,7 +5217,7 @@ Transform:
   m_GameObject: {fileID: 1100184930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.48, y: 0, z: 0}
+  m_LocalPosition: {x: 3.32, y: 2.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10451,8 +10451,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3074260347153418233}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.213, y: -0.073, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.21299982, y: -0.073, z: 0}
   m_LocalScale: {x: 0.4559547, y: 0.4559547, z: 0.4559547}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10471,7 +10471,7 @@ GameObject:
   - component: {fileID: 6065455356343336753}
   - component: {fileID: 1211415781243589436}
   - component: {fileID: 8501989302265644690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10510,8 +10510,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 668196727966915676}
   - {fileID: 1648098554396158459}
+  - {fileID: 668196727966915676}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2899098691138299836
@@ -10524,7 +10524,8 @@ GameObject:
   m_Component:
   - component: {fileID: 668196727966915676}
   - component: {fileID: 7223460164697140305}
-  m_Layer: 0
+  - component: {fileID: 7223460164697140306}
+  m_Layer: 6
   m_Name: bonde_placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10542,7 +10543,7 @@ GameObject:
   - component: {fileID: 1648098554396158459}
   - component: {fileID: 681157417780874990}
   - component: {fileID: 4079787369267317504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10695,6 +10696,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7223460164697140306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899098691138299836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 630429609b09cfd4e99bdc12ec36e564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8147400784405159693
 Transform:
   m_ObjectHideFlags: 0
