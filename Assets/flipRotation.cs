@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class flipRotation : MonoBehaviour
 {
-    public float a
+    public enum rotationType { Weapon, Character}
+    public rotationType ObjectTorotate;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,14 +16,28 @@ public class flipRotation : MonoBehaviour
     void Update()
     {
         Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(ObjectTorotate == rotationType.Character)
+        {
+            if (transform.position.x < mouseWorldPos.x)
+            {
+                transform.rotation = Quaternion.Euler(transform.localRotation.x, 0, transform.localRotation.z);
+            }
+            else if (transform.position.x > mouseWorldPos.x)
+            {
+                transform.rotation = Quaternion.Euler(transform.localRotation.x, 180, transform.localRotation.z);
+            }
 
-        if(transform.position.x < mouseWorldPos.x)
+        }else if(ObjectTorotate == rotationType.Weapon)
         {
-            transform.rotation = Quaternion.Euler(transform.localRotation.x, 0, transform.localRotation.z);
+            if (transform.position.x < mouseWorldPos.x)
+            {
+                transform.rotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.z);
+            }
+            else if (transform.position.x > mouseWorldPos.x)
+            {
+                transform.rotation = Quaternion.Euler(180, transform.localRotation.y, transform.localRotation.z);
+            }
         }
-        else if(transform.position.x > mouseWorldPos.x)
-        {
-            transform.rotation = Quaternion.Euler(transform.localRotation.x, 180, transform.localRotation.z);
-        }
+      
     }
 }
