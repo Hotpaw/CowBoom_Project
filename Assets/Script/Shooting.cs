@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 
     public GameObject bullet;
     public GameObject Weapon;
-    //public GameObject angle;
+    public GameObject angle;
 
     public float fireRate = 3;
 
@@ -30,12 +30,12 @@ public class Shooting : MonoBehaviour
            
         Instantiate(bullet, Weapon.transform.position, transform.localRotation);
 
-            //transform.up = transform.up - transform.right;
-            
-            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            transform.up = transform.up - transform.right;
 
-            //transform.up = transform.right;
-            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+
+            transform.up = transform.right;
+            Instantiate(bullet, Weapon.transform.position, transform.localRotation);
             timer = 0;
         }
 
