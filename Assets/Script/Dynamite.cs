@@ -1,20 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Dynamite : MonoBehaviour
 {
     public float radius;
+    public float dynamiteSpeed;
+    public float stopTimer;
     public int damage;
     public float timer;
     public ParticleSystem explosionParticle;
     public GameObject fuse;
-    
+    public Vector2 position;
+
+    Rigidbody2D rb;
+    Transform CurrentTarget;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         fuse.SetActive(false);
+
+        position = UnityEngine.Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+
+       
+
+
+        
+        rb.AddForce(position * dynamiteSpeed, ForceMode2D.Force);
+
+        Invoke("TotalStop",stopTimer);
+       
 
 
     }
@@ -22,7 +40,11 @@ public class Dynamite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        position = UnityEngine.Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+    }
+    public void TotalStop()
+    {
+        rb.velocity = Vector2.zero;
     }
     public void Explode()
     {
