@@ -5,10 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
+    public cattle_script cattle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        cattle = FindObjectOfType<cattle_script>();
     }
 
     // Update is called once per frame
@@ -17,6 +18,7 @@ public class Enemy : MonoBehaviour
         health -= a;
         if(health < 0)
         {
+            cattle.carried = false;
             gameObject.SetActive(false);
         }
     }
