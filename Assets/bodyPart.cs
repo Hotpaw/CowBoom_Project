@@ -5,18 +5,19 @@ using UnityEngine.UIElements;
 
 public class bodyPart : MonoBehaviour
 {   Vector2 position = Vector2.zero;
-    int randomX;
-    int randomY;
+    float randomX;
+    float randomY;
     float force;
     Rigidbody2D rb;
+    float timer;
     // Start is called before the first frame update
     void Start()
     {
-
-        transform.Rotate(Vector3.up);
+       
+       
         force = Random.Range(5, 10);
-        randomX = Random.Range(0, 360);
-        randomY = Random.Range(0, 360);
+        randomX = Random.Range(-360, 360);
+        randomY = Random.Range(-360, 360);
         rb = GetComponent<Rigidbody2D>();
        
         position = new Vector2(randomX, randomY);
@@ -27,6 +28,10 @@ public class bodyPart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer > 3)
+        {
+            Destroy(gameObject);
+        }
     }
 }

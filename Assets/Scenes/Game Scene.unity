@@ -593,7 +593,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: cooldown
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: enemySpawnPoints.Array.size
