@@ -15,9 +15,9 @@ public class flipRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if(ObjectTorotate == rotationType.Character)
-        {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+      
+        
             if (transform.position.x < mouseWorldPos.x)
             {
                 transform.rotation = Quaternion.Euler(transform.localRotation.x, 0, transform.localRotation.z);
@@ -27,15 +27,16 @@ public class flipRotation : MonoBehaviour
                 transform.rotation = Quaternion.Euler(transform.localRotation.x, 180, transform.localRotation.z);
             }
 
-        }else if(ObjectTorotate == rotationType.Weapon)
+        if(ObjectTorotate == rotationType.Weapon)
         {
+           
             if (transform.position.x < mouseWorldPos.x)
             {
-                transform.rotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.z);
+                transform.rotation = Quaternion.Euler(0, mouseWorldPos.y, mouseWorldPos.z);
             }
             else if (transform.position.x > mouseWorldPos.x)
             {
-                transform.rotation = Quaternion.Euler(180, transform.localRotation.y, transform.localRotation.z);
+                transform.rotation = Quaternion.Euler(180, mouseWorldPos.y, mouseWorldPos.z);
             }
         }
       
