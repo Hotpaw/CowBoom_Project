@@ -34,14 +34,10 @@ public class Spawner : MonoBehaviour
         int random = Random.Range(0, enemySpawnPoints.Length);
 
         GameObject objectTospawn = Instantiate(obj);
-        //if (objectTospawn.GetComponent<Enemy>().Id)
-        //{
-        //    objectTospawn.transform.position = enemySpawnPoints[random];
-        //}
-        //if (objectTospawn.GetComponent<Enemy>().Id)
-        //{
-        //    objectTospawn.transform.position = UfoSpawnPoints[random];
-        //}
+       
+            objectTospawn.transform.position = enemySpawnPoints[random].position;
+        
+       
     }
     
 }
