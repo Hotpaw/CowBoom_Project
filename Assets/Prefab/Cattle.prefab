@@ -138,7 +138,7 @@ MonoBehaviour:
   grass: {fileID: 0}
   UFO: {fileID: 0}
   y_offset: 1
-  speed: 2
+  speed: 3
 --- !u!50 &5503626454530456128
 Rigidbody2D:
   serializedVersion: 4
