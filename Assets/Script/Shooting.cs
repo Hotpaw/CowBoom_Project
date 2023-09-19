@@ -6,10 +6,13 @@ public class Shooting : MonoBehaviour
 {
 
     public GameObject bullet;
+    public Transform player;
+    public Transform mouse;
     public GameObject Weapon;
     public GameObject shooting;
     public GameObject shooting2;
     public GameObject shooting3;
+    bool flipped;
 
     public float fireRate = 3;
 
@@ -27,9 +30,12 @@ public class Shooting : MonoBehaviour
         transform.up = position;
 
 
-        if(Input.GetMouseButton(0) && timer > fireRate) 
+
+        FlipWeapon();
+
+        if (Input.GetMouseButton(0) && timer > fireRate)
         {
-           
+
             Instantiate(bullet, shooting.transform.position, shooting.transform.rotation);
 
             Instantiate(bullet, shooting2.transform.position, shooting2.transform.rotation);
@@ -46,9 +52,36 @@ public class Shooting : MonoBehaviour
             timer = 0;
         }
 
-            
-       
+
+
 
         timer += Time.deltaTime;
     }
+
+    private void FlipWeapon()
+    {
+        if (mouse.position.x > player.position.x)
+        {
+            if (!flipped)
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+                flipped = true;
+            }
+            Debug.Log("switched to right side");
+        }
+        if (mouse.position.x < transform.position.x)
+        {
+            if (flipped)
+            {
+                Vector3 newScale = player.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+                flipped = false;
+            }
+            Debug.Log("switched to left side");
+        }
+    }
+
 }
