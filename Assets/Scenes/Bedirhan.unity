@@ -123,34 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &133943815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1194836318478674996, guid: 0cce4f0277790f341873a5aeafa37c83, type: 3}
-  m_PrefabInstance: {fileID: 2482413345526292428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &133943818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3390425527808617183, guid: 0cce4f0277790f341873a5aeafa37c83, type: 3}
   m_PrefabInstance: {fileID: 2482413345526292428}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &133943821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133943815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fc2cc11518fd040a95093eaab67e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 1462979366500020235, guid: 131fd85b749662a49ba74efa881bbf7d, type: 3}
-  Weapon: {fileID: 1677071667}
-  shooting: {fileID: 1098979481}
-  shooting2: {fileID: 280151483}
-  shooting3: {fileID: 1707411273}
-  fireRate: 0.1
 --- !u!1 &280151483
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +159,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1677071670}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 16.339}
+--- !u!1 &533300934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 533300935}
+  m_Layer: 6
+  m_Name: ShootingRightMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &533300935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533300934}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.02394156, w: 0.99971336}
+  m_LocalPosition: {x: 0.44000012, y: -0.6500003, z: 0}
+  m_LocalScale: {x: 2.1932003, y: 2.1932003, z: 2.1932003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677071670}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.744}
 --- !u!1 &1098979481
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +231,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3463738754226844314, guid: e9504996e6cfcd249910078da1353f52, type: 3}
   m_PrefabInstance: {fileID: 2790685891265075347}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1677071672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677071667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fc2cc11518fd040a95093eaab67e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1462979366500020235, guid: 131fd85b749662a49ba74efa881bbf7d, type: 3}
+  Weapon: {fileID: 1677071667}
+  shooting: {fileID: 1098979481}
+  shooting2: {fileID: 533300934}
+  shooting3: {fileID: 1707411273}
+  shooting4: {fileID: 1885178869}
+  shooting5: {fileID: 280151483}
+  fireRate: 3
 --- !u!1 &1707411273
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +374,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1885178869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1885178870}
+  m_Layer: 6
+  m_Name: ShootingLeftMiddle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1885178870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885178869}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.054273345, w: 0.99852616}
+  m_LocalPosition: {x: -0.54, y: -0.69, z: 0}
+  m_LocalScale: {x: 2.1932003, y: 2.1932003, z: 2.1932003}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677071670}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.222}
 --- !u!1001 &2482413345526292428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,10 +475,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3390425527808617183, guid: 0cce4f0277790f341873a5aeafa37c83, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677071670}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1194836318478674996, guid: 0cce4f0277790f341873a5aeafa37c83, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 133943821}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cce4f0277790f341873a5aeafa37c83, type: 3}
 --- !u!1001 &2790685891265075347
 PrefabInstance:
@@ -486,11 +542,20 @@ PrefabInstance:
       addedObject: {fileID: 1098979482}
     - targetCorrespondingSourceObject: {fileID: 3463738754226844314, guid: e9504996e6cfcd249910078da1353f52, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 533300935}
+    - targetCorrespondingSourceObject: {fileID: 3463738754226844314, guid: e9504996e6cfcd249910078da1353f52, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 280151484}
     - targetCorrespondingSourceObject: {fileID: 3463738754226844314, guid: e9504996e6cfcd249910078da1353f52, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1885178870}
+    - targetCorrespondingSourceObject: {fileID: 3463738754226844314, guid: e9504996e6cfcd249910078da1353f52, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1707411274}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 893792537335684248, guid: e9504996e6cfcd249910078da1353f52, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677071672}
   m_SourcePrefab: {fileID: 100100000, guid: e9504996e6cfcd249910078da1353f52, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

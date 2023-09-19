@@ -12,7 +12,12 @@ public class Shooting : MonoBehaviour
     public GameObject shooting;
     public GameObject shooting2;
     public GameObject shooting3;
+
     bool flipped;
+
+    public GameObject shooting4;
+    public GameObject shooting5;
+
 
     public float fireRate = 3;
 
@@ -42,12 +47,11 @@ public class Shooting : MonoBehaviour
 
             Instantiate(bullet, shooting3.transform.position, shooting3.transform.rotation);
 
-            //transform.up = transform.up - transform.right;
+            Instantiate(bullet, shooting4.transform.position, shooting4.transform.rotation);
 
-            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+            Instantiate(bullet, shooting5.transform.position, shooting5.transform.rotation);
 
-            //transform.up = transform.right;
-            //Instantiate(bullet, Weapon.transform.position, transform.localRotation);
+
 
             timer = 0;
         }
