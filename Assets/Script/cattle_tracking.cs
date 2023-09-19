@@ -19,6 +19,8 @@ public class cattle_tracking : MonoBehaviour
     bool catching = true;
     Vector2 target_position;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,8 @@ public class cattle_tracking : MonoBehaviour
 
         if (!carrying_cattle && catching) 
         {
-            target_position = target.transform.position;                     
+            target_position = target.transform.position;
+            
         }
 
 
@@ -51,13 +54,17 @@ public class cattle_tracking : MonoBehaviour
             catching = false;
             target_position = escape.transform.position;
             target.transform.parent = transform.transform;
+            animator.SetBool("Carry", false);
+            animator.SetBool("Walk", true);
 
-            
 
         }
 
         if (carrying_cattle)
         {
+            animator.SetBool("Carry", true);
+            animator.SetBool("Walk", false);
+
             //Vector2 relative_position = new Vector2(0, 1);
             //target.transform.localPosition = relative_position;
 
