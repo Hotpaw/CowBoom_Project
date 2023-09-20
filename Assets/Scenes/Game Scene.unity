@@ -1141,11 +1141,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 83300734683663712, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.94
+      value: 22.72
       objectReference: {fileID: 0}
     - target: {fileID: 83300734683663712, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.48
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 83300734683663712, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1179,14 +1179,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5045661551247855099, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+      propertyPath: m_TagString
+      value: UFO
+      objectReference: {fileID: 0}
     - target: {fileID: 6666453324939969809, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: m_Name
       value: UFO_tractor_beam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666453324939969809, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+      propertyPath: m_TagString
+      value: UFO
       objectReference: {fileID: 0}
     - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: escape
       value: 
       objectReference: {fileID: 2017478004}
+    - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
+      propertyPath: health
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

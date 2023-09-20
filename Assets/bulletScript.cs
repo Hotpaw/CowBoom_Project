@@ -30,6 +30,7 @@ public class bulletScript : MonoBehaviour
         if (collision.gameObject.CompareTag("UFO"))
         {
             collision.gameObject.GetComponent<UFO>().TakeDamage(1);
+            Destroy(gameObject);
         }
     }
 
