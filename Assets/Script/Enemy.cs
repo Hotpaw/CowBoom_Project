@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
         if(health < 0)
         {
             cattle.carried = false;
-            BodyParts();
-            gameObject.SetActive(false);
+            Invoke("kill_alien", 0.1f);
+            Invoke("BodyParts", 0.1f);
         }
     }
     public void BodyParts()
@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(part, transform.position, Quaternion.identity);
         }
+    }
+
+    void kill_alien() 
+    {
+        gameObject.SetActive(false);
     }
 
 }

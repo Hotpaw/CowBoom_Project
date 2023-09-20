@@ -17,7 +17,7 @@ public class cattle_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        dropped = false;
   
     }
 
@@ -43,14 +43,14 @@ public class cattle_script : MonoBehaviour
 
         if (!carried)
         {
-            if (dropped)
-            {
-                
-                
-                dropped = false;
-                carried = false;
-            }
+            //if (dropped)
+            //{
 
+
+            //    dropped = false;
+            //    carried = false;
+            //}
+            Debug.Log("dropped");
             transform.SetParent(null);
         }
 
