@@ -75,10 +75,11 @@ public class cattle_tracking : MonoBehaviour
 
         if (transform.position == escape.transform.position) 
         {
-            cattle.carried = false;
-            cattle.dropped = true;
-            carrying_cattle=false;
-            Invoke("retrack", 2);
+            //this code caused the aliens to sometimes drop the cow
+            //cattle.carried = false;
+            //cattle.dropped = true;
+            //carrying_cattle=false;
+            //Invoke("retrack", 2);
         }
 
         if (cattle.carried && !carrying_cattle)
