@@ -14,7 +14,8 @@ public class UFO_tracking : MonoBehaviour
     public float speed;
     public int ID;
     bool carrying_cattle = false;
-    bool healthy = true;
+    public bool healthy = true;
+    bool cattle_dropped;
     public int health;
     Vector2 target_position;
 
@@ -41,7 +42,7 @@ public class UFO_tracking : MonoBehaviour
             target_position = target.transform.position;
         }
 
-        if (transform.position == target.transform.position)
+        if (transform.position == target.transform.position && healthy)
         {
             cattle.UFO_lifted = true;
             carrying_cattle = true;
@@ -50,8 +51,15 @@ public class UFO_tracking : MonoBehaviour
 
         if (health <= 60)
         {
+            if (!cattle_dropped) 
+            { 
+                target_position = transform.position;
+            }
             healthy = false;
-            Escape();
+            cattle.UFO_dropped = true;
+            cattle.UFO_lifted = false;
+            Invoke("Resume_escape", 3.5f);
+
         }
         
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
@@ -62,6 +70,7 @@ public class UFO_tracking : MonoBehaviour
         target_position = escape.transform.position;
     }
 
+
     private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.CompareTag("Bullet"))
@@ -69,6 +78,14 @@ public class UFO_tracking : MonoBehaviour
             cattle.UFO_lifted = true;
             carrying_cattle = false;
         }
+    }
+
+
+
+    void Resume_escape()
+    {
+        cattle_dropped = true;
+        target_position = escape.transform.position;
     }
 
 

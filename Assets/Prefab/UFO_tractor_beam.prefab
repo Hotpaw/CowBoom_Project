@@ -273,3 +273,5 @@ MonoBehaviour:
   cattle: {fileID: 0}
   speed: 1
   ID: 0
+  healthy: 1
+  health: 90
