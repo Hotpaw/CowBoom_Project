@@ -25,6 +25,7 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > cooldown && enemy_count.enemies > 0)
         {
+            enemy_count.enemies--;
             timer = 0;
             SpawnObject(spawnableObjects[0]);
         }

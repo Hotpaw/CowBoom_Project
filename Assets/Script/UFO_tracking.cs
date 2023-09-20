@@ -28,7 +28,7 @@ public class UFO_tracking : MonoBehaviour
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
         speed = 0.8f;
-        enemies = 5;
+        enemies = 20;
         //health = 90;
     }
 
@@ -36,11 +36,11 @@ public class UFO_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemies <= 0)
+        if (enemies <= 10)
         {
             step = speed * Time.deltaTime;
         }
-        if (enemies > 0)
+        if (enemies > 10)
         {
             step = 0;
         }
