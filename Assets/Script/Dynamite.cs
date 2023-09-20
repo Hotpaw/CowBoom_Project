@@ -15,6 +15,10 @@ public class Dynamite : MonoBehaviour
     public Vector2 position;
     bool burning = false;
 
+    AudioSource explosionSound;
+    public AudioClip explosionSound2;
+
+
     Rigidbody2D rb;
     Transform CurrentTarget;
 
@@ -30,18 +34,29 @@ public class Dynamite : MonoBehaviour
 
         Invoke("TotalStop",stopTimer);
 
-       
+        // get the sound for the explosion
+        explosionSound = GetComponent<AudioSource>();
+        explosionSound.Stop();
+
+
 
     }
     public void Explosion()
     {
         Explode();
+
+
+        
         explosionParticle.Play();
+        explosionSound.Play();
+        
         Invoke("DestroyObject", 0.3f);
+
         
     }
     public void DestroyObject()
     {
+        
         Destroy(gameObject);
     }
     // Update is called once per frame
@@ -54,6 +69,7 @@ public class Dynamite : MonoBehaviour
             if (timer > 2)
             {
                 Explosion();
+                
             }
         }
     }

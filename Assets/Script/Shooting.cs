@@ -13,6 +13,8 @@ public class Shooting : MonoBehaviour
     public GameObject shooting2;
     public GameObject shooting3;
 
+    AudioSource shoot;
+
     bool flipped;
 
     public GameObject shooting4;
@@ -25,7 +27,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        shoot = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && timer > fireRate)
         {
+
+            shoot.Play();
 
             Instantiate(bullet, shooting.transform.position, shooting.transform.rotation);
 
