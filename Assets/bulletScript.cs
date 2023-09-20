@@ -26,6 +26,11 @@ public class bulletScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
         }
+
+        if (collision.gameObject.CompareTag("UFO"))
+        {
+            collision.gameObject.GetComponent<UFO>().TakeDamage(1);
+        }
     }
 
 
