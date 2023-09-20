@@ -17,6 +17,8 @@ public class UFO_tracking : MonoBehaviour
     public bool healthy = true;
     bool cattle_dropped;
     public int health;
+    public int enemies;
+    float step;
     Vector2 target_position;
 
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class UFO_tracking : MonoBehaviour
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
         speed = 0.8f;
+        enemies = 5;
         //health = 90;
     }
 
@@ -33,8 +36,14 @@ public class UFO_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        float step = speed * Time.deltaTime;
+        if (enemies <= 0)
+        {
+            step = speed * Time.deltaTime;
+        }
+        if (enemies > 0)
+        {
+            step = 0;
+        }
 
 
         if (!carrying_cattle && healthy)

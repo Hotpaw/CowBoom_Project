@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
     public int health;
     public cattle_script cattle;
     public GameObject[] bodyParts;
+    public UFO_tracking kill_count;
     // Start is called before the first frame update
     void Start()
     {
         cattle = FindObjectOfType<cattle_script>();
+        kill_count = FindObjectOfType<UFO_tracking>();
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class Enemy : MonoBehaviour
         health -= a;
         if(health < 0)
         {
+            kill_count.enemies--;
             cattle.carried = false;
             Invoke("kill_alien", 0.1f);
             Invoke("BodyParts", 0.1f);
