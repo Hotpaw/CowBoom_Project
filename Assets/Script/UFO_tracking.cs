@@ -58,4 +58,15 @@ public class UFO_tracking : MonoBehaviour
     {
         target_position = escape.transform.position;
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Bullet"))
+        {
+            cattle.UFO_lifted = true;
+            carrying_cattle = false;
+        }
+    }
+
+
 }
