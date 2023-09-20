@@ -28,7 +28,7 @@ public class UFO_tracking : MonoBehaviour
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
         speed = 0.8f;
-        enemies = 20;
+        enemies = 5;
         //health = 90;
     }
 
