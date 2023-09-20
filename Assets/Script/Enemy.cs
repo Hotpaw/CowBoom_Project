@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int health;
     public cattle_script cattle;
-    public GameObject[] bodyParts;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,27 +14,6 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void TakeDamage(int a)
-    {
-        health -= a;
-        if(health < 0)
-        {
-            cattle.carried = false;
-            Invoke("kill_alien", 0.1f);
-            Invoke("BodyParts", 0.1f);
-        }
-    }
-    public void BodyParts()
-    {
-        foreach(var part in bodyParts)
-        {
-            Instantiate(part, transform.position, Quaternion.identity);
-        }
-    }
 
-    void kill_alien() 
-    {
-        gameObject.SetActive(false);
-    }
 
 }

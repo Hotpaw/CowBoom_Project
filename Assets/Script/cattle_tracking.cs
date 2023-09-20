@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Animations;
 using static UnityEngine.GraphicsBuffer;
@@ -13,11 +14,14 @@ public class cattle_tracking : MonoBehaviour
     public GameObject child;
     public GameObject farmer;
     public cattle_script cattle;
+    public Enemy alien;
     public float speed;
     public int ID;
+    public int health;
     bool carrying_cattle = false;
     bool catching = true;
     Vector2 target_position;
+    public GameObject[] bodyParts;
 
     public Animator animator;
 
@@ -28,8 +32,10 @@ public class cattle_tracking : MonoBehaviour
         farmer = GameObject.FindGameObjectWithTag("Player");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindObjectOfType<cattle_script>();
+        alien = FindAnyObjectByType<Enemy>();
         int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
         escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
+        health = 4;
     }
 
 
@@ -39,6 +45,12 @@ public class cattle_tracking : MonoBehaviour
 
         float step = speed * Time.deltaTime;
 
+        if (carrying_cattle && health < 1)
+        {
+            carrying_cattle=false;
+            cattle.carried = false;
+            cattle.remove_parent();
+        }
 
         if (!carrying_cattle && catching) 
         {
@@ -68,7 +80,7 @@ public class cattle_tracking : MonoBehaviour
             //Vector2 relative_position = new Vector2(0, 1);
             //target.transform.localPosition = relative_position;
 
-
+            
 
         }
 
@@ -100,6 +112,32 @@ public class cattle_tracking : MonoBehaviour
     }
 
 
+    public void TakeDamage(int a)
+    {
+        health -= a;
+        if (health < 0)
+        {
+            Die();
+        }
+    }
 
+    public void Die()
+    {
+        Invoke("kill_alien", 0.1f);
+        Invoke("BodyParts", 0.1f);
+
+    }
+    public void BodyParts()
+    {
+        foreach (var part in bodyParts)
+        {
+            Instantiate(part, transform.position, Quaternion.identity);
+        }
+    }
+
+    void kill_alien()
+    {
+        gameObject.SetActive(false);
+    }
 
 }
