@@ -10,23 +10,23 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        winGame.SetActive(true);
+        winGame.SetActive(false);
         loseGame.SetActive(false);  
     }
 
     // Update is called once per frame
     void Update()
     {
-        Time.timeScale = 0;
+        
     }
 
-    void WinGame()
+    public void WinGame()
     {
         winGame.SetActive(true);
     }
 
-    void LoseGame()
+    public void LoseGame()
     {
-        loseGame.SetActive(false);
+        loseGame.SetActive(true);
     }
 }

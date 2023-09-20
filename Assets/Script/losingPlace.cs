@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class losingPlace : MonoBehaviour
 {
-    
+    public UIManager UI;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,8 @@ public class losingPlace : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Cattle"))
         {
-            Debug.Log("LOSER");
+            Debug.Log("LOOOOOSE");
+            UI.LoseGame();
         }
     }
 }
