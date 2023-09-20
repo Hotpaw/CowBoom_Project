@@ -809,7 +809,7 @@ Transform:
   m_GameObject: {fileID: 1271943691}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.21733883, y: 0.45, z: -3.7188048}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -891,11 +891,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2388414346339382335, guid: 746bfe71cd7e8954eb7027fcb5650104, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388414346339382335, guid: 746bfe71cd7e8954eb7027fcb5650104, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388414346339382335, guid: 746bfe71cd7e8954eb7027fcb5650104, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1425,7 +1425,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: cooldown
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: enemySpawnPoints.Array.size
@@ -1610,11 +1610,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2672714453580217868, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.16
       objectReference: {fileID: 0}
     - target: {fileID: 2672714453580217868, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.79
       objectReference: {fileID: 0}
     - target: {fileID: 2672714453580217868, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
       propertyPath: m_LocalPosition.z
