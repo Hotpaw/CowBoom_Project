@@ -131,20 +131,7 @@ public class cattle_tracking : MonoBehaviour
         }
     }
 
-    //private void FlipWeapon()
-    //{
-    //    if (mouse.position.x > player.position.x)
-    //    {
-    //        if (!flipped)
-    //        {
-    //            Vector3 newScale = transform.localScale;
-    //            newScale.x *= -1;
-    //            transform.localScale = newScale;
-    //            flipped = true;
-    //        }
 
-    //    }
-    //}
     public void Flip()
     {
         if (!flipped)
@@ -209,6 +196,7 @@ public class cattle_tracking : MonoBehaviour
         bool dead = false;
         if (!dead)
         {
+            cattle.remove_parent();
         Invoke("kill_alien", 0.1f);
         Invoke("BodyParts", 0.1f);
             dead = true;

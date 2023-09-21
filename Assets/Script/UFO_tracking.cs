@@ -50,10 +50,17 @@ public class UFO_tracking : MonoBehaviour
         ufoSound = GetComponent<AudioSource>();
         max_health = 150;
         anim = GetComponent<Animation>();
+        stage = 1;
+
         //health = 90;
     }
 
-
+    private void OnEnable()
+    {
+        restore_health();
+        healthy = true;
+        a = true;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -111,9 +118,11 @@ public class UFO_tracking : MonoBehaviour
                 a = false;
                 DayCycle d = FindAnyObjectByType<DayCycle>();
                 d.ChangeTimeInvoke(0);
-                d.ChangeTimeInvoke(10);
+                //d.ChangeTimeInvoke(10);
+                Invoke("spawn_activate", 12);
 
             }
+            Debug.Log("deactivating ufo");
             spawner.ActivateUfo();
           
         }
@@ -137,6 +146,10 @@ public class UFO_tracking : MonoBehaviour
         
     }
 
+    void spawn_activate()
+    {
+        spawner.PauseSpawner();
+    }
 
     private void OnCollisionEnter(Collision other)
     {
