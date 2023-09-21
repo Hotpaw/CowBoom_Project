@@ -20,6 +20,7 @@ public class UFO_tracking : MonoBehaviour
     public int damage_threshold;
     int stage;
     Spawner spawner;
+    UIManager UI;
     float step;
 
     AudioSource ufoSound;
@@ -35,7 +36,7 @@ public class UFO_tracking : MonoBehaviour
         cattle = FindAnyObjectByType<cattle_script>();
         damage_threshold = 0;
         speed = 0.8f;
-
+        UI = FindFirstObjectByType<UIManager>();
         spawner = FindObjectOfType<Spawner>();
         ufoSound = GetComponent<AudioSource>();
         //health = 90;
@@ -97,7 +98,11 @@ public class UFO_tracking : MonoBehaviour
         }
         
         if (transform.position == escape.transform.position && health < damage_threshold)
-        {            
+        {
+            if (cattle.UFO_lifted)
+            {
+                UI.LoseGame();
+            }
             if (stage == 1)
             {
                 stage = 2;
