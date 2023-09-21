@@ -9,11 +9,17 @@ public class bulletScript : MonoBehaviour
     float timer;
 
     AudioSource audioSource;
-    public AudioClip[] getHit;
+    AudioSource audioSource2;
+    public AudioClip[] AlliensgetHit;
+
+    public AudioClip[] UfogetHit;
+
+    public
     // Start is called before the first frame update
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource2 = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,18 +36,27 @@ public class bulletScript : MonoBehaviour
         {
             collision.gameObject.GetComponent<cattle_tracking>().TakeDamage(1);
 
-            int rndIndex = Random.Range(0, getHit.Length);
-            audioSource.clip = getHit[rndIndex];
+            int rndIndex = Random.Range(0, AlliensgetHit.Length);
+            audioSource.clip = AlliensgetHit[rndIndex];
+
             audioSource.Play();
-            
         }
 
         if (collision.gameObject.CompareTag("UFO"))
         {
-            
+            int rndIndex = Random.Range(0, UfogetHit.Length);
+            audioSource.clip = UfogetHit[rndIndex];
+            audioSource.Play();
+
+
+            Debug.Log("UFOOO");
+
             collision.gameObject.GetComponent<UFO>().TakeDamage(1);
             Destroy(gameObject);
+
         }
+
+        
     }
 
 

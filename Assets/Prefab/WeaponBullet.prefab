@@ -163,12 +163,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 30
-  getHit:
+  AlliensgetHit:
   - {fileID: 8300000, guid: 68f039fd0b8636341bcf70c79cef1234, type: 3}
   - {fileID: 8300000, guid: 98beadf350e8b124491f37cd4bac76da, type: 3}
   - {fileID: 8300000, guid: 7d7e83424ab167b41a7872f01c80f433, type: 3}
   - {fileID: 8300000, guid: fbb0c12238d951a46b1d003b4a1eee96, type: 3}
   - {fileID: 8300000, guid: 9e7da933435ea0740b60667647f480bd, type: 3}
+  UfogetHit:
+  - {fileID: 8300000, guid: 1bca1d68e42b42341be9e13921938128, type: 3}
+  - {fileID: 8300000, guid: 3f3640f6e76b0044ea45236c14088137, type: 3}
+  - {fileID: 8300000, guid: 2d2a95caa19575e479ef9d04a095d7f2, type: 3}
+  - {fileID: 8300000, guid: b4a69f4d86e7bb1489a120a521575643, type: 3}
+  - {fileID: 8300000, guid: d3bd094ba5a84ca468ab3064477a912d, type: 3}
+  - {fileID: 8300000, guid: 7c181603e93e15f46b937df182004940, type: 3}
 --- !u!82 &6145162074032562102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -180,7 +187,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
