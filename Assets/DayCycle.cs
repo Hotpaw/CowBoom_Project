@@ -29,7 +29,7 @@ public class DayCycle : MonoBehaviour
     {
         if(day == false)
         {
-            if (a < 0.7)
+            if (a < 0.8)
             {
                 a += Time.deltaTime;
             }
