@@ -10,7 +10,7 @@ public class DayCycle : MonoBehaviour
     public GameObject ScreenColor;
     
     public bool day;
-   
+    public float a;
     SpriteRenderer sr;
     public Color night;
     // Start is called before the first frame update
@@ -22,18 +22,46 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         DayToNight();
     }
     public  void DayToNight()
     {
-     if(night.a != 195)
+        if(day == false)
         {
-            night.a += Time.deltaTime / 2;
-            sr.color = night;
+            if (a < 0.7)
+            {
+                a += Time.deltaTime;
+            }
+            else
+            {
+                return;
+            }
+        
+        }else if(day == true)
+        {
+            if (a > 0)
+            {
+                a -= Time.deltaTime;
+            }
+            else
+            {
+                return;
+            }
         }
-        else if(night.a == 195) {
-            night.a = 195;
-            sr.color = night;
+        night.a = a;
+        sr.color = night;
+    }
+    public void ChangeDayTime()
+    {
+        if (day)
+        {
+            day = false;
+        }
+        else
+        {
+            day = true;
         }
     }
+      
 }

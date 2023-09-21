@@ -1278,7 +1278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScreenColor: {fileID: 1003237263}
-  day: 0
+  day: 1
+  a: 0
   night: {r: 0, g: 0.05882353, b: 0.24705882, a: 0}
 --- !u!1001 &1697948246
 PrefabInstance:
@@ -2126,6 +2127,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2040114310280813617, guid: 3d7008b35b6f2f945af6dcd6f2de1ff0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0ed463c8f78894c469494c8bbc0d0752, type: 3}
     - target: {fileID: 4129754863794674714, guid: 3d7008b35b6f2f945af6dcd6f2de1ff0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8576517
