@@ -22,8 +22,15 @@ public class cattle_tracking : MonoBehaviour
     bool catching = true;
     Vector2 target_position;
     public GameObject[] bodyParts;
+    AudioSource audioSource;
+
+    public AudioClip cowSound;
 
     public Animator animator;
+
+    bool soundCowEnabled = false;
+    int cowCount;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +43,9 @@ public class cattle_tracking : MonoBehaviour
         int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
         escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
         health = 4;
+
+
+        audioSource = GetComponent<AudioSource>();  
     }
 
 
@@ -77,8 +87,23 @@ public class cattle_tracking : MonoBehaviour
             animator.SetBool("Carry", true);
             animator.SetBool("Walk", false);
 
+
+            
+            soundCowEnabled = true;
+
             //Vector2 relative_position = new Vector2(0, 1);
             //target.transform.localPosition = relative_position;
+
+            if (soundCowEnabled && cowCount < 1) 
+            {
+                audioSource.PlayOneShot(cowSound);
+                
+                soundCowEnabled = false;
+                cowCount++;
+            }
+
+            
+            
 
             
 

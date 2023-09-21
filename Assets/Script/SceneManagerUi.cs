@@ -20,6 +20,7 @@ public class SceneManagerUi : MonoBehaviour
     public void ChangeScene(int id)
     {
         SceneManager.LoadScene(id);
+        Time.timeScale = 1.0f;
     }
     public void ExitGame()
     {
