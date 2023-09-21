@@ -21,10 +21,14 @@ public class Shooting : MonoBehaviour
     public GameObject shooting5;
 
 
+
     public AudioClip shootSound;
     public AudioClip reload; 
     
 
+
+
+    public Animator NuzzleFlash;
 
     public float fireRate = 3;
 
@@ -32,7 +36,12 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         AudioSource = GetComponent<AudioSource>();
+
+        Cursor.visible = false;
+        
+
     }
 
     // Update is called once per frame
@@ -48,9 +57,13 @@ public class Shooting : MonoBehaviour
         if (Input.GetMouseButton(0) && timer > fireRate)
         {
 
+
             AudioSource.PlayOneShot(shootSound);
             Invoke("waitForShooting", 0.4f);
             
+
+            NuzzleFlash.Play("Flash");
+
 
             
 

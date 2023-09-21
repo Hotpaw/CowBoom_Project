@@ -17,7 +17,9 @@ public class UFO_tracking : MonoBehaviour
     public bool healthy = true;
     bool cattle_dropped;
     public int health;
-    public int enemies;
+    public int damage_threshold;
+    int stage;
+    Spawner spawner;
     float step;
 
     AudioSource ufoSound;
@@ -31,10 +33,10 @@ public class UFO_tracking : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Cattle");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
-      
+        damage_threshold = 0;
         speed = 0.8f;
-        enemies = 5;
 
+        spawner = FindObjectOfType<Spawner>();
         ufoSound = GetComponent<AudioSource>();
         //health = 90;
     }
@@ -46,14 +48,10 @@ public class UFO_tracking : MonoBehaviour
 
         
 
-        if (enemies <= 10)
-        {
+      
             step = speed * Time.deltaTime;
-        }
-        if (enemies > 10)
-        {
-            step = 0;
-        }
+     
+      
 
 
         if (!carrying_cattle && healthy)
@@ -70,22 +68,47 @@ public class UFO_tracking : MonoBehaviour
             Invoke("Escape", 2.5f);
         }
 
-        if (health <= 60)
+        if (health <= damage_threshold)
         {
             if (!cattle_dropped) 
             { 
                 target_position = transform.position;
             }
             healthy = false;
-            
+
             UFO ufo = FindObjectOfType<UFO>();
-            ufo.ChangeSprite(0);
+            
+            if (stage == 1)
+            {
+                ufo.ChangeSprite(0);
+            }
+            else if (stage == 2)
+            {
+                ufo.ChangeSprite(1);
+            }
+            else if (stage == 3) 
+            {
+                ufo.ChangeSprite(2);
+            }
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
 
         }
         
+        if (transform.position == escape.transform.position && health < damage_threshold)
+        {            
+            if (stage == 1)
+            {
+                stage = 2;
+            }
+            else if (stage == 2)
+            {
+                stage = 3;
+            }
+            spawner.ActivateUfo();
+        }
+
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
 
     }
