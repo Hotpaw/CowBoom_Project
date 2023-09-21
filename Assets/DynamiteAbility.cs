@@ -8,7 +8,7 @@ public class DynamiteAbility : MonoBehaviour
     public GameObject Dynamite;
   
 
-    public float fireRate = 3;
+    public float fireRate;
 
     float timer;
     // Start is called before the first frame update
@@ -23,19 +23,19 @@ public class DynamiteAbility : MonoBehaviour
         Vector2 position = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         transform.up = position;
 
-
+        timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space) && timer > fireRate)
         {
 
 
             GameObject dynamiteClone = Instantiate(Dynamite, transform.position, Dynamite.transform.localRotation);
             
-           
+           timer = 0;
           
         }
 
 
-        timer += Time.deltaTime;
+       
     }
 }
 

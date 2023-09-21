@@ -129,6 +129,8 @@ public class cattle_tracking : MonoBehaviour
         Invoke("kill_alien", 0.1f);
         Invoke("BodyParts", 0.1f);
             dead = true;
+            Spawner spawner = FindObjectOfType<Spawner>();
+            spawner.DeathCounter++;
         }
         else
         {

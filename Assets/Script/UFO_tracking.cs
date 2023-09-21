@@ -17,7 +17,7 @@ public class UFO_tracking : MonoBehaviour
     public bool healthy = true;
     bool cattle_dropped;
     public int health;
-    public int enemies;
+   
     float step;
 
     AudioSource ufoSound;
@@ -33,7 +33,7 @@ public class UFO_tracking : MonoBehaviour
         cattle = FindAnyObjectByType<cattle_script>();
       
         speed = 0.8f;
-        enemies = 5;
+       
 
         ufoSound = GetComponent<AudioSource>();
         //health = 90;
@@ -46,14 +46,10 @@ public class UFO_tracking : MonoBehaviour
 
         
 
-        if (enemies <= 10)
-        {
+      
             step = speed * Time.deltaTime;
-        }
-        if (enemies > 10)
-        {
-            step = 0;
-        }
+     
+      
 
 
         if (!carrying_cattle && healthy)

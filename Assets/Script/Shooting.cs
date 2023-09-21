@@ -20,7 +20,7 @@ public class Shooting : MonoBehaviour
     public GameObject shooting4;
     public GameObject shooting5;
 
-
+    public Animator NuzzleFlash;
     public float fireRate = 3;
 
     float timer;
@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && timer > fireRate)
         {
-            
+            NuzzleFlash.Play("Flash");
 
             shoot.Play();
 

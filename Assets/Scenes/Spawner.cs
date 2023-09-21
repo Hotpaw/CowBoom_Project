@@ -8,26 +8,41 @@ public class Spawner : MonoBehaviour
     public List<GameObject> spawnableObjects;
     public Transform[] enemySpawnPoints;
     public Transform[] UfoSpawnPoints;
-    public UFO_tracking enemy_count;
+    public GameObject Ufo;
+  
     public float timer;
     public float cooldown;
+    public bool spawnerActive = true;
+    public int DeathCounter;
+    public int UfoDeathsToSpawn;
     
     
     // Start is called before the first frame update
     void Start()
     {
-        enemy_count = FindObjectOfType<UFO_tracking>();
+     
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > cooldown && enemy_count.enemies > 0)
+        if (timer > cooldown && spawnerActive)
         {
-            enemy_count.enemies--;
+           
             timer = 0;
             SpawnObject(spawnableObjects[0]);
+        }
+        if(DeathCounter > UfoDeathsToSpawn)
+        {
+            DeathCounter = 0;
+            PauseSpawner();
+            cattle_tracking[] alien = FindObjectsOfType<cattle_tracking>();
+            foreach(cattle_tracking aliens in alien)
+            {
+                aliens.Die();
+            }
+           
         }
 
         // Add Code for when to spawn Ufo.
@@ -42,5 +57,29 @@ public class Spawner : MonoBehaviour
         
        
     }
+    public void PauseSpawner()
+    {
+        if(spawnerActive)
+        {
+            spawnerActive = false;
+        }
+        else
+        {
+            spawnerActive = true;
+        }
+        ActivateUfo();
+    }
+    public void ActivateUfo()
+    {
+        
+        if(Ufo.gameObject.activeInHierarchy)
+        {
+            Ufo.SetActive(false);
+        }
+        else
+        {
+            Ufo.SetActive(true);
+        }
     
+    }
 }
