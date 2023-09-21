@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class UFO_tracking : MonoBehaviour
 {
-
+   
     public GameObject target;
     public GameObject escape;
     public GameObject child;
@@ -22,6 +22,8 @@ public class UFO_tracking : MonoBehaviour
 
     AudioSource ufoSound;
     Vector2 target_position;
+  
+  
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class UFO_tracking : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Cattle");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
+      
         speed = 0.8f;
         enemies = 5;
 
@@ -74,6 +77,9 @@ public class UFO_tracking : MonoBehaviour
                 target_position = transform.position;
             }
             healthy = false;
+            
+            UFO ufo = FindObjectOfType<UFO>();
+            ufo.ChangeSprite(0);
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
