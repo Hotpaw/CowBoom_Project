@@ -245,7 +245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5dcb8a62031f764c9fe64dce9bd477a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageFaces: []
   UFO_script: {fileID: 0}
+  sR: {fileID: 0}
 --- !u!1 &6666453324939969809
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +356,14 @@ MonoBehaviour:
   ID: 0
   healthy: 1
   health: 90
-  enemies: 0
+  damage_threshold: 0
+  UfogetHit:
+  - {fileID: 8300000, guid: 1bca1d68e42b42341be9e13921938128, type: 3}
+  - {fileID: 8300000, guid: 3f3640f6e76b0044ea45236c14088137, type: 3}
+  - {fileID: 8300000, guid: 2d2a95caa19575e479ef9d04a095d7f2, type: 3}
+  - {fileID: 8300000, guid: b4a69f4d86e7bb1489a120a521575643, type: 3}
+  - {fileID: 8300000, guid: d3bd094ba5a84ca468ab3064477a912d, type: 3}
+  - {fileID: 8300000, guid: 7c181603e93e15f46b937df182004940, type: 3}
 --- !u!82 &7419926529501681498
 AudioSource:
   m_ObjectHideFlags: 0
@@ -366,7 +375,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3220557842042464e9262d84fe830f10, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
