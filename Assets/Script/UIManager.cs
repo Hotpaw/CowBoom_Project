@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
 
     public void LoseGame()
     {
+        Time.timeScale = 0;
         loseGame.SetActive(true);
     }
 }
