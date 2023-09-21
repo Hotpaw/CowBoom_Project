@@ -1872,7 +1872,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: spawnerActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: UfoDeathsToSpawn
@@ -2122,7 +2122,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 3024437cef220d14694a5380f91b050b, type: 3}
     - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
       propertyPath: fireRate
-      value: 0.8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
       propertyPath: shootSound
