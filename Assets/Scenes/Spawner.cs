@@ -76,7 +76,7 @@ public class Spawner : MonoBehaviour
 
             DayCycle d = FindObjectOfType<DayCycle>();
             d.ChangeDayTime();
-
+            timer = 0;
             spawnerActive = true;
         }
 
