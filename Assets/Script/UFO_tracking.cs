@@ -92,6 +92,7 @@ public class UFO_tracking : MonoBehaviour
             {
                 ufo.ChangeSprite(0);
                 max_health = max_health + health_increase_per_stage;
+                
             }
             else if (stage == 2)
             {
