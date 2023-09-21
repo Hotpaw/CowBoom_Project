@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.UIElements;
@@ -25,13 +26,13 @@ public class DayCycle : MonoBehaviour
       
         DayToNight();
     }
-    public  void DayToNight()
+    public void DayToNight()
     {
         if(day == false)
         {
             if (a < 0.8)
             {
-                a += Time.deltaTime;
+                a += Time.deltaTime / 3;
             }
             else
             {
@@ -42,7 +43,7 @@ public class DayCycle : MonoBehaviour
         {
             if (a > 0)
             {
-                a -= Time.deltaTime;
+                a -= Time.deltaTime / 3;
             }
             else
             {
@@ -54,6 +55,7 @@ public class DayCycle : MonoBehaviour
     }
     public void ChangeDayTime()
     {
+        
         if (day)
         {
             day = false;
@@ -62,6 +64,11 @@ public class DayCycle : MonoBehaviour
         {
             day = true;
         }
+    }
+    public void ChangeTimeInvoke(float a)
+    {
+        Invoke("ChangeDayTime", a);
+     
     }
       
 }

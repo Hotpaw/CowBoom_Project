@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public Transform[] enemySpawnPoints;
     public Transform[] UfoSpawnPoints;
     public GameObject Ufo;
-  
+    UFO_tracking ufo_script;
     public float timer;
     public float cooldown;
     public bool spawnerActive = true;
@@ -20,14 +20,19 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        ufo_script = GetComponent<UFO_tracking>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PauseSpawner();
+        }
         timer += Time.deltaTime;
-        if (timer > cooldown && spawnerActive)
+        if (timer >= cooldown && spawnerActive)
         {
            
             timer = 0;
@@ -41,8 +46,9 @@ public class Spawner : MonoBehaviour
             foreach(cattle_tracking aliens in alien)
             {
                 aliens.Die();
+               
             }
-           
+            ActivateUfo();
         }
 
         // Add Code for when to spawn Ufo.
@@ -62,12 +68,25 @@ public class Spawner : MonoBehaviour
         if(spawnerActive)
         {
             spawnerActive = false;
+           
+         
         }
-        else
+        else if(!spawnerActive)
         {
+
+            DayCycle d = FindObjectOfType<DayCycle>();
+            d.ChangeDayTime();
+            timer = 0;
             spawnerActive = true;
         }
+
+       
+       
+
         ActivateUfo();
+        ufo_script.restore_health();
+
+
     }
     public void ActivateUfo()
     {
@@ -75,6 +94,8 @@ public class Spawner : MonoBehaviour
         if(Ufo.gameObject.activeInHierarchy)
         {
             Ufo.SetActive(false);
+            DayCycle d = FindObjectOfType<DayCycle>();
+           
         }
         else
         {
