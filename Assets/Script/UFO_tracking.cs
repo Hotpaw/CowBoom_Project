@@ -31,6 +31,8 @@ public class UFO_tracking : MonoBehaviour
 
 
     AudioSource ufoSound;
+
+    public AudioClip[] UfogetHit;
     Vector2 target_position;
   
   
@@ -142,6 +144,12 @@ public class UFO_tracking : MonoBehaviour
         {
             cattle.UFO_lifted = true;
             carrying_cattle = false;
+
+            int rndIndex = Random.Range(0, UfogetHit.Length);
+            ufoSound.clip = UfogetHit[rndIndex];
+            ufoSound.Play();
+
+            Debug.Log("UFOOO");
         }
 
     }
