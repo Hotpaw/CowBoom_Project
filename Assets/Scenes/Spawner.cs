@@ -26,6 +26,11 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PauseSpawner();
+        }
         timer += Time.deltaTime;
         if (timer > cooldown && spawnerActive)
         {
@@ -62,12 +67,19 @@ public class Spawner : MonoBehaviour
         if(spawnerActive)
         {
             spawnerActive = false;
+            DayCycle d = FindObjectOfType<DayCycle>();
+            d.ChangeDayTime();
+            ActivateUfo();
         }
-        else
+        else if(!spawnerActive)
         {
+            
+       
+           
             spawnerActive = true;
         }
-        ActivateUfo();
+       
+       
     }
     public void ActivateUfo()
     {
@@ -75,6 +87,8 @@ public class Spawner : MonoBehaviour
         if(Ufo.gameObject.activeInHierarchy)
         {
             Ufo.SetActive(false);
+            DayCycle d = FindObjectOfType<DayCycle>();
+           
         }
         else
         {

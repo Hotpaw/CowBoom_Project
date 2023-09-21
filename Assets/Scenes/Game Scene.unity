@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 2017478004}
     - target: {fileID: 9201273296679931275, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
       propertyPath: health
-      value: 150
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8027115747843291022, guid: 8197b58e5b00f934c8577767a5a9738d, type: 3}
@@ -1977,7 +1977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: spawnerActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1006517530447642706, guid: c1be6c6536771d14eb5016a85d371b6d, type: 3}
       propertyPath: UfoDeathsToSpawn

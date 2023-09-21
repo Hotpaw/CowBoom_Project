@@ -22,6 +22,7 @@ public class UFO_tracking : MonoBehaviour
     Spawner spawner;
     UIManager UI;
     float step;
+    bool a = true;
 
     AudioSource ufoSound;
     Vector2 target_position;
@@ -111,7 +112,16 @@ public class UFO_tracking : MonoBehaviour
             {
                 stage = 3;
             }
+            if (a == true)
+            {
+                a = false;
+                DayCycle d = FindAnyObjectByType<DayCycle>();
+                d.ChangeTimeInvoke(0);
+                d.ChangeTimeInvoke(10);
+
+            }
             spawner.ActivateUfo();
+          
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
@@ -119,7 +129,10 @@ public class UFO_tracking : MonoBehaviour
     }
     void Escape()
     {
+       
         target_position = escape.transform.position;
+       
+        
     }
 
 
@@ -136,6 +149,10 @@ public class UFO_tracking : MonoBehaviour
 
     void Resume_escape()
     {
+      
+     
+    
+       
         cattle_dropped = true;
         target_position = escape.transform.position;
     }
