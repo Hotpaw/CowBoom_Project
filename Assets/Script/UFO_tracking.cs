@@ -26,7 +26,7 @@ public class UFO_tracking : MonoBehaviour
     float step;
 
     bool a = true;
-
+    bool stageSet = false;
     private Animation anim;
 
 
@@ -86,27 +86,7 @@ public class UFO_tracking : MonoBehaviour
             }
             healthy = false;
 
-            UFO ufo = FindObjectOfType<UFO>();
-            
-            if (stage == 1)
-            {
-                ufo.ChangeSprite(0);
-                max_health = max_health + health_increase_per_stage;
-                
-            }
-            else if (stage == 2)
-            {
-                ufo.ChangeSprite(1);
-                max_health = max_health + health_increase_per_stage;
-            }
-            else if (stage == 3) 
-            {
-                anim.Play("ufo_animation_burning");
-            }
-            else if (stage == 4)
-            {
-
-            }
+             
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
@@ -146,6 +126,7 @@ public class UFO_tracking : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
 
     }
+    
     void Escape()
     {
        
@@ -157,11 +138,12 @@ public class UFO_tracking : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             cattle.UFO_lifted = true;
             carrying_cattle = false;
         }
+
     }
 
     public void restore_health()
