@@ -1852,6 +1852,26 @@ PrefabInstance:
       propertyPath: mouse
       value: 
       objectReference: {fileID: 267641604}
+    - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 3024437cef220d14694a5380f91b050b, type: 3}
+    - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
+      propertyPath: shootSound
+      value: 
+      objectReference: {fileID: 8300000, guid: bf111ff59ad9e024b904b2c495197429, type: 3}
+    - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
+      propertyPath: ShootingSound.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
+      propertyPath: ShootingSound.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: bf111ff59ad9e024b904b2c495197429, type: 3}
+    - target: {fileID: 8337114454221069508, guid: 76f3c0e4a360c364eb9898661f20eab2, type: 3}
+      propertyPath: ShootingSound.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3024437cef220d14694a5380f91b050b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
