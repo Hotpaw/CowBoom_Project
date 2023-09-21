@@ -18,11 +18,17 @@ public class UFO_tracking : MonoBehaviour
     bool cattle_dropped;
     public int health;
     public int damage_threshold;
-    int stage;
+    public int stage;
+    int max_health;
+    int health_increase_per_stage = 25;
     Spawner spawner;
     UIManager UI;
     float step;
+<<<<<<< Updated upstream
     bool a = true;
+=======
+    private Animation anim;
+>>>>>>> Stashed changes
 
     AudioSource ufoSound;
     Vector2 target_position;
@@ -40,6 +46,8 @@ public class UFO_tracking : MonoBehaviour
         UI = FindFirstObjectByType<UIManager>();
         spawner = FindObjectOfType<Spawner>();
         ufoSound = GetComponent<AudioSource>();
+        max_health = 150;
+        anim = GetComponent<Animation>();
         //health = 90;
     }
 
@@ -83,14 +91,20 @@ public class UFO_tracking : MonoBehaviour
             if (stage == 1)
             {
                 ufo.ChangeSprite(0);
+                max_health = max_health + health_increase_per_stage;
             }
             else if (stage == 2)
             {
                 ufo.ChangeSprite(1);
+                max_health = max_health + health_increase_per_stage;
             }
             else if (stage == 3) 
             {
-                ufo.ChangeSprite(2);
+                anim.Play("ufo_animation_burning");
+            }
+            else if (stage == 4)
+            {
+
             }
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
@@ -98,12 +112,9 @@ public class UFO_tracking : MonoBehaviour
 
         }
         
-        if (transform.position == escape.transform.position && health < damage_threshold)
+        if (transform.position == escape.transform.position && health <= damage_threshold)
         {
-            if (cattle.UFO_lifted)
-            {
-                UI.LoseGame();
-            }
+            
             if (stage == 1)
             {
                 stage = 2;
@@ -122,6 +133,13 @@ public class UFO_tracking : MonoBehaviour
             }
             spawner.ActivateUfo();
           
+        }
+
+        if (transform.position == escape.transform.position && cattle.UFO_lifted)
+        {
+
+            UI.LoseGame();
+
         }
 
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
@@ -145,7 +163,10 @@ public class UFO_tracking : MonoBehaviour
         }
     }
 
-
+    public void restore_health()
+    {
+        health = max_health;
+    }
 
     void Resume_escape()
     {

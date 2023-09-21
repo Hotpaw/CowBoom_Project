@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public Transform[] enemySpawnPoints;
     public Transform[] UfoSpawnPoints;
     public GameObject Ufo;
-  
+    UFO_tracking ufo_script;
     public float timer;
     public float cooldown;
     public bool spawnerActive = true;
@@ -20,7 +20,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        ufo_script = GetComponent<UFO_tracking>();
     }
 
     // Update is called once per frame
@@ -79,8 +79,14 @@ public class Spawner : MonoBehaviour
 
             spawnerActive = true;
         }
+<<<<<<< Updated upstream
        
        
+=======
+        ActivateUfo();
+        ufo_script.restore_health();
+
+>>>>>>> Stashed changes
     }
     public void ActivateUfo()
     {
