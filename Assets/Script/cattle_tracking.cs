@@ -52,7 +52,7 @@ public class cattle_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Flip();
         float step = speed * Time.deltaTime;
 
         if (carrying_cattle && health < 1)
@@ -129,7 +129,17 @@ public class cattle_tracking : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target_position, step);
         }
     }
-
+    public void Flip()
+    {
+        if (transform.position.x < target.transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.y);
+        }
+        else if (transform.position.x > target.transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(180, transform.localRotation.y, transform.localRotation.y);
+        }
+    }
 
     void retrack()
     {
