@@ -55,14 +55,14 @@ public class UFO_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-
-      
+     
             step = speed * Time.deltaTime;
      
-      
 
+        if (transform.position == escape.transform.position)
+        {
+            Debug.Log("escaped");
+        }
 
         if (!carrying_cattle && healthy)
         {
@@ -171,10 +171,7 @@ public class UFO_tracking : MonoBehaviour
 
     void Resume_escape()
     {
-      
-     
-    
-       
+             
         cattle_dropped = true;
         target_position = escape.transform.position;
     }
