@@ -79,14 +79,14 @@ public class Spawner : MonoBehaviour
 
             spawnerActive = true;
         }
-<<<<<<< Updated upstream
+
        
        
-=======
+
         ActivateUfo();
         ufo_script.restore_health();
 
->>>>>>> Stashed changes
+
     }
     public void ActivateUfo()
     {

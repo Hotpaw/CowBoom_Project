@@ -24,11 +24,11 @@ public class UFO_tracking : MonoBehaviour
     Spawner spawner;
     UIManager UI;
     float step;
-<<<<<<< Updated upstream
+
     bool a = true;
-=======
+
     private Animation anim;
->>>>>>> Stashed changes
+
 
     AudioSource ufoSound;
     Vector2 target_position;
