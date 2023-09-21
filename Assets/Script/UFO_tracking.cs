@@ -19,6 +19,8 @@ public class UFO_tracking : MonoBehaviour
     public int health;
     public int enemies;
     float step;
+
+    AudioSource ufoSound;
     Vector2 target_position;
 
     // Start is called before the first frame update
@@ -29,6 +31,8 @@ public class UFO_tracking : MonoBehaviour
         cattle = FindAnyObjectByType<cattle_script>();
         speed = 0.8f;
         enemies = 5;
+
+        ufoSound = GetComponent<AudioSource>();
         //health = 90;
     }
 
@@ -36,6 +40,9 @@ public class UFO_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         if (enemies <= 10)
         {
             step = speed * Time.deltaTime;
@@ -53,6 +60,8 @@ public class UFO_tracking : MonoBehaviour
 
         if (transform.position == target.transform.position && healthy)
         {
+            Debug.Log("Lyfterrrr");
+            ufoSound.Play();
             cattle.UFO_lifted = true;
             carrying_cattle = true;
             Invoke("Escape", 2.5f);
