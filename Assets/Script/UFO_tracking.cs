@@ -52,7 +52,10 @@ public class UFO_tracking : MonoBehaviour
         anim = GetComponent<Animation>();
         //health = 90;
     }
-
+    private void OnEnable()
+    {
+        a = true;
+    }
 
     // Update is called once per frame
     void Update()
