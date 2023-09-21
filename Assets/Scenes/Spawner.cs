@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
             PauseSpawner();
         }
         timer += Time.deltaTime;
-        if (timer > cooldown && spawnerActive)
+        if (timer >= cooldown && spawnerActive)
         {
            
             timer = 0;
@@ -46,8 +46,9 @@ public class Spawner : MonoBehaviour
             foreach(cattle_tracking aliens in alien)
             {
                 aliens.Die();
+               
             }
-           
+            ActivateUfo();
         }
 
         // Add Code for when to spawn Ufo.
@@ -67,15 +68,15 @@ public class Spawner : MonoBehaviour
         if(spawnerActive)
         {
             spawnerActive = false;
-            DayCycle d = FindObjectOfType<DayCycle>();
-            d.ChangeDayTime();
-            ActivateUfo();
+           
+         
         }
         else if(!spawnerActive)
         {
-            
-       
-           
+
+            DayCycle d = FindObjectOfType<DayCycle>();
+            d.ChangeDayTime();
+
             spawnerActive = true;
         }
        
