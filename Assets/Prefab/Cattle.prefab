@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5096245311043217884}
   - component: {fileID: 2992172057748502054}
+  - component: {fileID: 2035690626719301918}
   m_Layer: 0
   m_Name: cow_placeholder_Sprite
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 876674cb65f759147a91faf0d23b2904, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ea6a33a2703f0f43bf8b295ee4df77e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2035690626719301918
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817644640085387886}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 06efce2995ab3114b8894d37022d4d8c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4331917766164374003
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,9 +156,11 @@ MonoBehaviour:
   carried: 0
   dropped: 0
   UFO_lifted: 0
+  UFO_dropped: 0
   alien: {fileID: 0}
   grass: {fileID: 0}
   UFO: {fileID: 0}
+  UFO_beam: {fileID: 0}
   y_offset: 1
   speed: 3
 --- !u!50 &5503626454530456128

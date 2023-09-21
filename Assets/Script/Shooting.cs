@@ -13,21 +13,35 @@ public class Shooting : MonoBehaviour
     public GameObject shooting2;
     public GameObject shooting3;
 
-    AudioSource shoot;
+    AudioSource AudioSource;
 
     bool flipped;
 
     public GameObject shooting4;
     public GameObject shooting5;
 
+
+
+    public AudioClip shootSound;
+    public AudioClip reload; 
+    
+
+
+
     public Animator NuzzleFlash;
+
     public float fireRate = 3;
 
     float timer;
     // Start is called before the first frame update
     void Start()
     {
-        shoot = GetComponent<AudioSource>();
+
+        AudioSource = GetComponent<AudioSource>();
+
+        Cursor.visible = false;
+        
+
     }
 
     // Update is called once per frame
@@ -42,9 +56,19 @@ public class Shooting : MonoBehaviour
 
         if (Input.GetMouseButton(0) && timer > fireRate)
         {
+
+
+            AudioSource.PlayOneShot(shootSound);
+            Invoke("waitForShooting", 0.4f);
+            
+
             NuzzleFlash.Play("Flash");
 
-            shoot.Play();
+
+            
+
+
+            
 
             Instantiate(bullet, shooting.transform.position, shooting.transform.rotation);
 
@@ -91,6 +115,11 @@ public class Shooting : MonoBehaviour
             }
        
         }
+    }
+
+    void waitForShooting()
+    {
+        AudioSource.PlayOneShot(reload);
     }
 
 }
