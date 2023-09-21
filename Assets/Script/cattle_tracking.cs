@@ -23,6 +23,7 @@ public class cattle_tracking : MonoBehaviour
     Vector2 target_position;
     public GameObject[] bodyParts;
     AudioSource audioSource;
+    bool flipped;
 
     public AudioClip cowSound;
 
@@ -43,7 +44,7 @@ public class cattle_tracking : MonoBehaviour
         int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
         escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
         health = 4;
-
+        flipped = false;
 
         audioSource = GetComponent<AudioSource>();  
     }
@@ -129,16 +130,63 @@ public class cattle_tracking : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target_position, step);
         }
     }
+
+    //private void FlipWeapon()
+    //{
+    //    if (mouse.position.x > player.position.x)
+    //    {
+    //        if (!flipped)
+    //        {
+    //            Vector3 newScale = transform.localScale;
+    //            newScale.x *= -1;
+    //            transform.localScale = newScale;
+    //            flipped = true;
+    //        }
+
+    //    }
+    //}
     public void Flip()
     {
-        if (transform.position.x < target.transform.position.x)
+        if (!flipped)
         {
-            transform.rotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.y);
+            if (transform.position.x > target.transform.position.x && !cattle.carried)
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+                flipped = true;
+            }
+            if (cattle.carried && transform.position.x > farmer.transform.position.x)
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+                flipped = true;
+            }
         }
-        else if (transform.position.x > target.transform.position.x)
+
+        if (flipped)
         {
-            transform.rotation = Quaternion.Euler(180, transform.localRotation.y, transform.localRotation.y);
+            if (cattle.carried && transform.position.x < farmer.transform.position.x)
+            {
+                Vector3 newScale = transform.localScale;
+                newScale.x *= -1;
+                transform.localScale = newScale;
+                flipped = false;
+            }
         }
+
+
+
+
+        //if (transform.position.x < target.transform.position.x)
+        //{
+        //    transform.rotation = Quaternion.Euler(0, transform.localRotation.y, transform.localRotation.y);
+        //}
+        //else if (transform.position.x > target.transform.position.x)
+        //{
+        //    transform.rotation = Quaternion.Euler(180, transform.localRotation.y, transform.localRotation.y);
+        //}
     }
 
     void retrack()
