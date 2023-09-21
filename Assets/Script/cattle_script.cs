@@ -35,14 +35,11 @@ public class cattle_script : MonoBehaviour
         if (carried)
         {
             float parent_y = transform.parent.position.y;
-            Vector2 Parent_pos = new Vector2(0,1);
+            Vector2 Parent_pos = new Vector2(0,2f);
             transform.localPosition = Parent_pos;
         }
 
-        if (!carried)
-        {
-            transform.SetParent(null);
-        }
+
 
         if (UFO_lifted)
         {
@@ -71,6 +68,11 @@ public class cattle_script : MonoBehaviour
         UFO_lifted = false;
         carried = false;
         released = true;
+    }
+
+    public void remove_parent()
+    {
+        transform.SetParent(null);
     }
 
 }

@@ -24,7 +24,7 @@ public class bulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(1);
+            collision.gameObject.GetComponent<cattle_tracking>().TakeDamage(1);
         }
 
         if (collision.gameObject.CompareTag("UFO"))

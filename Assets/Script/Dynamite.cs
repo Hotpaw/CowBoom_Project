@@ -108,8 +108,15 @@ public class Dynamite : MonoBehaviour
             if (collider.gameObject.CompareTag("Enemy") && collider != null)
             {
                
+
                 collider.GetComponent<Enemy>().TakeDamage(damage);
   
+
+                collider.GetComponent<cattle_tracking>().TakeDamage(damage);
+
+                
+               
+
             }
             if (collider.gameObject.CompareTag("Dynamite"))
             {

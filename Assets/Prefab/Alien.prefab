@@ -55,8 +55,18 @@ MonoBehaviour:
   child: {fileID: 0}
   farmer: {fileID: 0}
   cattle: {fileID: 0}
+  alien: {fileID: 0}
   speed: 2
   ID: 0
+  health: 0
+  bodyParts:
+  - {fileID: 291216867964420429, guid: 85c42a720d8c14f488e7c1b3e0435cc7, type: 3}
+  - {fileID: 461814149937141228, guid: ab91f6820303a5240b8b19b4b911347c, type: 3}
+  - {fileID: 3694504905135808025, guid: 3dfe438e9572f8744be78728bbd71ce1, type: 3}
+  - {fileID: 4107902253564340480, guid: 24e5fcbc1d1ed47478fcba18db06b322, type: 3}
+  - {fileID: 8254077593460267906, guid: e1bea09a60f2f3c4ca05868e5ae0ce4a, type: 3}
+  - {fileID: 3330679366633794198, guid: 4b95209c46b63564fafeec3e34560a3e, type: 3}
+  - {fileID: 2802400278085980541, guid: a81a482c80c970c4a9997cebd0bb9fd6, type: 3}
   animator: {fileID: 8424174625427310398}
 --- !u!70 &8137506352383546548
 CapsuleCollider2D:
@@ -148,21 +158,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839041691868045058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 827d07c67d3ad1d4b915b4f38ea7a5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
   cattle: {fileID: 0}
-  bodyParts:
-  - {fileID: 291216867964420429, guid: 85c42a720d8c14f488e7c1b3e0435cc7, type: 3}
-  - {fileID: 461814149937141228, guid: ab91f6820303a5240b8b19b4b911347c, type: 3}
-  - {fileID: 3694504905135808025, guid: 3dfe438e9572f8744be78728bbd71ce1, type: 3}
-  - {fileID: 4107902253564340480, guid: 24e5fcbc1d1ed47478fcba18db06b322, type: 3}
-  - {fileID: 8254077593460267906, guid: e1bea09a60f2f3c4ca05868e5ae0ce4a, type: 3}
-  - {fileID: 3330679366633794198, guid: 4b95209c46b63564fafeec3e34560a3e, type: 3}
-  - {fileID: 2802400278085980541, guid: a81a482c80c970c4a9997cebd0bb9fd6, type: 3}
 --- !u!212 &4981462073434191727
 SpriteRenderer:
   m_ObjectHideFlags: 0
