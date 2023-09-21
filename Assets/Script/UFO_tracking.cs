@@ -26,11 +26,13 @@ public class UFO_tracking : MonoBehaviour
     float step;
 
     bool a = true;
-
+    bool stageSet = false;
     private Animation anim;
 
 
     AudioSource ufoSound;
+
+    public AudioClip[] UfogetHit;
     Vector2 target_position;
   
   
@@ -55,14 +57,14 @@ public class UFO_tracking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
-
-      
+     
             step = speed * Time.deltaTime;
      
-      
 
+        if (transform.position == escape.transform.position)
+        {
+            Debug.Log("escaped");
+        }
 
         if (!carrying_cattle && healthy)
         {
@@ -86,27 +88,7 @@ public class UFO_tracking : MonoBehaviour
             }
             healthy = false;
 
-            UFO ufo = FindObjectOfType<UFO>();
-            
-            if (stage == 1)
-            {
-                ufo.ChangeSprite(0);
-                max_health = max_health + health_increase_per_stage;
-                
-            }
-            else if (stage == 2)
-            {
-                ufo.ChangeSprite(1);
-                max_health = max_health + health_increase_per_stage;
-            }
-            else if (stage == 3) 
-            {
-                anim.Play("ufo_animation_burning");
-            }
-            else if (stage == 4)
-            {
-
-            }
+             
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
@@ -146,6 +128,7 @@ public class UFO_tracking : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target_position, step);
 
     }
+    
     void Escape()
     {
        
@@ -157,11 +140,18 @@ public class UFO_tracking : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             cattle.UFO_lifted = true;
             carrying_cattle = false;
+
+            int rndIndex = Random.Range(0, UfogetHit.Length);
+            ufoSound.clip = UfogetHit[rndIndex];
+            ufoSound.Play();
+
+            Debug.Log("UFOOO");
         }
+
     }
 
     public void restore_health()
@@ -171,10 +161,7 @@ public class UFO_tracking : MonoBehaviour
 
     void Resume_escape()
     {
-      
-     
-    
-       
+             
         cattle_dropped = true;
         target_position = escape.transform.position;
     }
