@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
     public GameObject shooting2;
     public GameObject shooting3;
 
-    AudioSource AudioSource;
+    AudioSource audioSource;
 
     bool flipped;
 
@@ -37,7 +37,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
 
-        AudioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
 
         Cursor.visible = false;
         
@@ -58,7 +58,7 @@ public class Shooting : MonoBehaviour
         {
 
 
-            AudioSource.PlayOneShot(shootSound);
+            audioSource.PlayOneShot(shootSound);
             Invoke("waitForShooting", 0.4f);
             
 
@@ -119,7 +119,7 @@ public class Shooting : MonoBehaviour
 
     void waitForShooting()
     {
-        AudioSource.PlayOneShot(reload);
+        audioSource.PlayOneShot(reload);
     }
 
 }
