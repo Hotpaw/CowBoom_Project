@@ -100,7 +100,7 @@ public class Spawner : MonoBehaviour
         else
         {
             Ufo.SetActive(true);
-            ufo_script.restore_health();
+            //ufo_script.restore_health();
         }
     }
 }
