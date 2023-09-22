@@ -15,26 +15,30 @@ public class Spawner : MonoBehaviour
     public bool spawnerActive = true;
     public int DeathCounter;
     public int UfoDeathsToSpawn;
-    bool deaths_flip_flop;
-    
+    public float startTimer;
+    public float GameStart;
+    public bool gameStarted = false;
     
     // Start is called before the first frame update
     void Start()
     {
         ufo_script = GetComponent<UFO_tracking>();
-        deaths_flip_flop = false;
-        spawnerActive = true;
     }
 
     // Update is called once per frame
     void Update()
-    {
 
-        if (Input.GetKeyDown(KeyCode.F))
+    {
+        startTimer += Time.deltaTime;
+        if(startTimer > GameStart && gameStarted == false)
         {
-            Debug.Log("F pressed");
-            PauseSpawner();
+            gameStarted = true;
+            StartSpawner();
+            DayCycle dayCycle = FindAnyObjectByType<DayCycle>();
+            dayCycle.ChangeTimeInvoke(0, false);
         }
+
+       
         timer += Time.deltaTime;
         if (timer >= cooldown && spawnerActive)
         {
@@ -42,20 +46,17 @@ public class Spawner : MonoBehaviour
             timer = 0;
             SpawnObject(spawnableObjects[0]);
         }
-        if(DeathCounter >= UfoDeathsToSpawn)
+        if(DeathCounter > UfoDeathsToSpawn)
         {
-
-            Debug.Log("death count reached");
-            //GameObject UFO_spawn = Instantiate(Ufo);
-            //UFO_spawn.transform.position = new Vector2(-20, -2);
-            Debug.Log("death counter reset");
-
-            Debug.Log("death count caused ufo activation");
+            DeathCounter = 0;
+            PauseSpawner();
+            cattle_tracking[] alien = FindObjectsOfType<cattle_tracking>();
+            foreach(cattle_tracking aliens in alien)
+            {
+                aliens.Die();
+               
+            }
             ActivateUfo();
-            
-            ufo_script.healthy = true;
-            ufo_script.health = 100;
-            deaths_flip_flop = true;
         }
 
         // Add Code for when to spawn Ufo.
@@ -70,52 +71,30 @@ public class Spawner : MonoBehaviour
         
        
     }
+    public void StartSpawner()
+    {
+
+        spawnerActive = true;
+        timer = 0;
+    }
     public void PauseSpawner()
     {
-        if(spawnerActive)
-        {
-            spawnerActive = false;
-           
-         
-        }
-        else if(!spawnerActive)
-        {
-
-            //DayCycle d = FindObjectOfType<DayCycle>();
-            //d.ChangeDayTime();
-            timer = 0;
-            spawnerActive = true;
-        }
-
-       
-       
-
-        //ActivateUfo();
-        
-
-
+     
+        spawnerActive = false;
     }
     public void ActivateUfo()
     {
-        
-        if(Ufo.gameObject.activeInHierarchy)
-        {
-            Debug.Log("deactivating ufo");
-            Ufo.SetActive(false);
-            //DayCycle d = FindObjectOfType<DayCycle>();
-
-        }
-        else
-        {
-            Debug.Log("resetting ufo health");
-            
-            Debug.Log("activating ufo");
+      
+         
+   
             Ufo.SetActive(true);
-            DeathCounter = 0;
-            ufo_script.health = 100;
-            deaths_flip_flop = false;
-            ufo_script.carrying_cattle = false;
-            //ufo_script.restore_health();
-        }
+  
+    }
+    public void InactivateUfo()
+    {
+
+            Ufo.SetActive(false);
+         
+      
     }
 }

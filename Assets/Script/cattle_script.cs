@@ -16,7 +16,6 @@ public class cattle_script : MonoBehaviour
     public Transform UFO_beam;
     public float y_offset;
     public float speed;
-    bool in_ufo;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +23,6 @@ public class cattle_script : MonoBehaviour
         dropped = true;
         UFO_dropped = false;
         released = true;
-        in_ufo = false;
     }
 
     // Update is called once per frame
@@ -45,21 +43,13 @@ public class cattle_script : MonoBehaviour
 
         if (UFO_lifted)
         {
-            if (!in_ufo)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, UFO.position, step * 0.3f);
-                released = false;
-                Invoke("inside_ufo", 2f);
-            }
-            if (in_ufo)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, UFO.position, step * 1.5f);
-            }
+            transform.position = Vector2.MoveTowards(transform.position, UFO.position, step * 0.3f);
+            released = false;
         }
 
         if (UFO_dropped && !released)
         {
-            in_ufo = false;
+
             transform.position = Vector2.MoveTowards(transform.position, UFO_beam.position, step * 0.3f);
             Invoke("dropped_complete", 3f);
         }
@@ -84,8 +74,5 @@ public class cattle_script : MonoBehaviour
     {
         transform.SetParent(null);
     }
-    void inside_ufo()
-    {
-        in_ufo = true;
-    }
+
 }

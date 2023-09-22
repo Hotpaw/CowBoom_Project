@@ -40,7 +40,6 @@ public class bulletScript : MonoBehaviour
             audioSource.clip = AlliensgetHit[rndIndex];
 
             audioSource.Play();
-            Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("UFO"))
