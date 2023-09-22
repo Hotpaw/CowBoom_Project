@@ -40,7 +40,7 @@ public class Shooting : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         Cursor.visible = false;
-        
+        flipped = true;
 
     }
 
