@@ -26,19 +26,7 @@ public class GameHandler : MonoBehaviour
 
     public void Quit()
     {
-        
+        Debug.Log("Test");
         SceneManager.LoadScene("Main Menu");
-    }
-
-    public void PlayFromMenu()
-    {
-
-        SceneManager.LoadScene(("Tutorial"));
-    }
-
-    public void PlayInTutorial()
-    {
-
-        SceneManager.LoadScene(("Game Scene"));
     }
 }

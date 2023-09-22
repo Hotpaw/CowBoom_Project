@@ -386,9 +386,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7491271254305287150}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
-        m_MethodName: PlayFromMenu
-        m_Mode: 1
+        m_TargetAssemblyTypeName: SceneManagerUi, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -550,8 +550,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7491271254305287150}
-        m_TargetAssemblyTypeName: GameHandler, Assembly-CSharp
-        m_MethodName: Quit
+        m_TargetAssemblyTypeName: SceneManagerUi, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -932,11 +932,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1480186074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3284486849237167185, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
-  m_PrefabInstance: {fileID: 7491271254305287148}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7491271254305287148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,30 +988,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3275847488640831412, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3284486849237167185, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7491271254305287150}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
 --- !u!4 &7491271254305287149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8909857680648229257, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
   m_PrefabInstance: {fileID: 7491271254305287148}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7491271254305287150
+--- !u!114 &7491271254305287150 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3275847488640831412, guid: 0f08fcd58f9612d4d9ac9faee1cc9229, type: 3}
+  m_PrefabInstance: {fileID: 7491271254305287148}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480186074}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c166075dd301f4fabf9758b80a3816, type: 3}
+  m_Script: {fileID: 11500000, guid: e67b69c4bacc64541b77c11cf109a296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
