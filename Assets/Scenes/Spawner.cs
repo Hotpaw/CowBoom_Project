@@ -15,12 +15,14 @@ public class Spawner : MonoBehaviour
     public bool spawnerActive = true;
     public int DeathCounter;
     public int UfoDeathsToSpawn;
+    bool deaths_flip_flop;
     
     
     // Start is called before the first frame update
     void Start()
     {
         ufo_script = GetComponent<UFO_tracking>();
+        deaths_flip_flop = false;
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class Spawner : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
+            Debug.Log("F pressed");
             PauseSpawner();
         }
         timer += Time.deltaTime;
@@ -38,9 +41,12 @@ public class Spawner : MonoBehaviour
             timer = 0;
             SpawnObject(spawnableObjects[0]);
         }
-        if(DeathCounter > UfoDeathsToSpawn)
+        if(DeathCounter > UfoDeathsToSpawn && deaths_flip_flop == false)
         {
+
+            Debug.Log("death count reached");
             DeathCounter = 0;
+            Debug.Log("death counter reset");
             PauseSpawner();
             cattle_tracking[] alien = FindObjectsOfType<cattle_tracking>();
             foreach(cattle_tracking aliens in alien)
@@ -48,7 +54,11 @@ public class Spawner : MonoBehaviour
                 aliens.Die();
                
             }
+            Debug.Log("death count caused ufo activation");
             ActivateUfo();
+            ufo_script.healthy = true;
+            ufo_script.health = 100;
+            deaths_flip_flop = true;
         }
 
         // Add Code for when to spawn Ufo.
@@ -93,13 +103,20 @@ public class Spawner : MonoBehaviour
         
         if(Ufo.gameObject.activeInHierarchy)
         {
+            Debug.Log("deactivating ufo");
             Ufo.SetActive(false);
             DayCycle d = FindObjectOfType<DayCycle>();
-           
+
         }
         else
         {
+            Debug.Log("resetting ufo health");
+            
+            Debug.Log("activating ufo");
             Ufo.SetActive(true);
+            ufo_script.health = 100;
+            deaths_flip_flop = false;
+            ufo_script.carrying_cattle = false;
             //ufo_script.restore_health();
         }
     }

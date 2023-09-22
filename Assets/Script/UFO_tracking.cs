@@ -13,7 +13,7 @@ public class UFO_tracking : MonoBehaviour
     public cattle_script cattle;
     public float speed;
     public int ID;
-    bool carrying_cattle = false;
+    public bool carrying_cattle = false;
     public bool healthy = true;
     bool cattle_dropped;
     public int health;
@@ -74,6 +74,14 @@ public class UFO_tracking : MonoBehaviour
             Debug.Log("escaped");
         }
 
+        if (health > damage_threshold)
+        {
+            healthy = true;
+        }
+        else if(health <= damage_threshold)
+        {
+            healthy = false;
+        }
         if (!carrying_cattle && healthy)
         {
             target_position = target.transform.position;
@@ -125,6 +133,9 @@ public class UFO_tracking : MonoBehaviour
             }
             Debug.Log("deactivating ufo");
             spawner.ActivateUfo();
+            carrying_cattle = false;
+            health = 100;
+            healthy = true;
           
         }
 
@@ -141,7 +152,7 @@ public class UFO_tracking : MonoBehaviour
     
     void Escape()
     {
-       
+        Debug.Log("escaping");
         target_position = escape.transform.position;
        
         
@@ -171,11 +182,12 @@ public class UFO_tracking : MonoBehaviour
     public void restore_health()
     {
         health = max_health;
+        healthy = true;
     }
 
     void Resume_escape()
     {
-             
+        Debug.Log("resuming escape");
         cattle_dropped = true;
         target_position = escape.transform.position;
     }
