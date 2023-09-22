@@ -68,6 +68,7 @@ MonoBehaviour:
   - {fileID: 8254077593460267906, guid: e1bea09a60f2f3c4ca05868e5ae0ce4a, type: 3}
   - {fileID: 3330679366633794198, guid: 4b95209c46b63564fafeec3e34560a3e, type: 3}
   - {fileID: 2802400278085980541, guid: a81a482c80c970c4a9997cebd0bb9fd6, type: 3}
+  ufo_carrying: 0
   cowSound: {fileID: 8300000, guid: ca9322b72eac797458aa1dd8ad7bca93, type: 3}
   animator: {fileID: 8424174625427310398}
 --- !u!70 &8137506352383546548
@@ -207,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -387,7 +388,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 8d4bd09504fac954faa8c54d72f10b5b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
