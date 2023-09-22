@@ -24,50 +24,50 @@ public class DayCycle : MonoBehaviour
     void Update()
     {
       
-        DayToNight();
+        //DayToNight();
     }
     public void DayToNight()
     {
-        if(day == false)
-        {
-            if (a < 0.8)
-            {
-                a += Time.deltaTime / 3;
-            }
-            else
-            {
-                return;
-            }
+        //if(day == false)
+        //{
+        //    if (a < 0.8)
+        //    {
+        //        a += Time.deltaTime / 3;
+        //    }
+        //    else
+        //    {
+        //        return;
+        //    }
         
-        }else if(day == true)
-        {
-            if (a > 0)
-            {
-                a -= Time.deltaTime / 3;
-            }
-            else
-            {
-                return;
-            }
-        }
-        night.a = a;
-        sr.color = night;
+        //}else if(day == true)
+        //{
+        //    if (a > 0)
+        //    {
+        //        a -= Time.deltaTime / 3;
+        //    }
+        //    else
+        //    {
+        //        return;
+        //    }
+        //}
+        //night.a = a;
+        //sr.color = night;
     }
     public void ChangeDayTime()
     {
         
         if (day)
         {
-            day = false;
+            //day = false;
         }
         else
         {
-            day = true;
+            //day = true;
         }
     }
     public void ChangeTimeInvoke(float a)
     {
-        Invoke("ChangeDayTime", a);
+        //Invoke("ChangeDayTime", a);
      
     }
       

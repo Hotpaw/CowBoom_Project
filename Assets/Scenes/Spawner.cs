@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
     {
         ufo_script = GetComponent<UFO_tracking>();
         deaths_flip_flop = false;
+        spawnerActive = true;
     }
 
     // Update is called once per frame
@@ -41,21 +42,17 @@ public class Spawner : MonoBehaviour
             timer = 0;
             SpawnObject(spawnableObjects[0]);
         }
-        if(DeathCounter > UfoDeathsToSpawn && deaths_flip_flop == false)
+        if(DeathCounter >= UfoDeathsToSpawn)
         {
 
             Debug.Log("death count reached");
-            DeathCounter = 0;
+            //GameObject UFO_spawn = Instantiate(Ufo);
+            //UFO_spawn.transform.position = new Vector2(-20, -2);
             Debug.Log("death counter reset");
-            PauseSpawner();
-            cattle_tracking[] alien = FindObjectsOfType<cattle_tracking>();
-            foreach(cattle_tracking aliens in alien)
-            {
-                aliens.Die();
-               
-            }
+
             Debug.Log("death count caused ufo activation");
             ActivateUfo();
+            
             ufo_script.healthy = true;
             ufo_script.health = 100;
             deaths_flip_flop = true;
@@ -84,8 +81,8 @@ public class Spawner : MonoBehaviour
         else if(!spawnerActive)
         {
 
-            DayCycle d = FindObjectOfType<DayCycle>();
-            d.ChangeDayTime();
+            //DayCycle d = FindObjectOfType<DayCycle>();
+            //d.ChangeDayTime();
             timer = 0;
             spawnerActive = true;
         }
@@ -105,7 +102,7 @@ public class Spawner : MonoBehaviour
         {
             Debug.Log("deactivating ufo");
             Ufo.SetActive(false);
-            DayCycle d = FindObjectOfType<DayCycle>();
+            //DayCycle d = FindObjectOfType<DayCycle>();
 
         }
         else
@@ -114,6 +111,7 @@ public class Spawner : MonoBehaviour
             
             Debug.Log("activating ufo");
             Ufo.SetActive(true);
+            DeathCounter = 0;
             ufo_script.health = 100;
             deaths_flip_flop = false;
             ufo_script.carrying_cattle = false;

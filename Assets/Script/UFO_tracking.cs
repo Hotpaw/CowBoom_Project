@@ -26,6 +26,7 @@ public class UFO_tracking : MonoBehaviour
     float step;
 
     bool a = true;
+    cattle_tracking alien;
     bool stageSet = false;
     private Animation anim;
 
@@ -43,14 +44,17 @@ public class UFO_tracking : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Cattle");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
+        alien = FindAnyObjectByType<cattle_tracking>();
+
         damage_threshold = 0;
         speed = 0.8f;
         UI = FindFirstObjectByType<UIManager>();
         spawner = FindObjectOfType<Spawner>();
         ufoSound = GetComponent<AudioSource>();
-        max_health = 150;
+        max_health = 80;
         anim = GetComponent<Animation>();
         stage = 1;
+
 
         //health = 90;
     }
@@ -92,6 +96,8 @@ public class UFO_tracking : MonoBehaviour
             Debug.Log("Lyfterrrr");
             ufoSound.Play();
             cattle.UFO_lifted = true;
+            cattle.UFO_dropped = false;
+            alien.ufo_carrying = true;
             carrying_cattle = true;
             Invoke("Escape", 2.5f);
         }
@@ -104,7 +110,7 @@ public class UFO_tracking : MonoBehaviour
             }
             healthy = false;
 
-             
+            
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
@@ -190,6 +196,7 @@ public class UFO_tracking : MonoBehaviour
         Debug.Log("resuming escape");
         cattle_dropped = true;
         target_position = escape.transform.position;
+        alien.ufo_carrying = false;
     }
 
 
