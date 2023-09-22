@@ -24,7 +24,7 @@ public class cattle_tracking : MonoBehaviour
     public GameObject[] bodyParts;
     AudioSource audioSource;
     bool flipped;
-
+    public bool ufo_carrying;
     public AudioClip cowSound;
 
     public Animator animator;
@@ -40,12 +40,13 @@ public class cattle_tracking : MonoBehaviour
         farmer = GameObject.FindGameObjectWithTag("Player");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindObjectOfType<cattle_script>();
+
         alien = FindAnyObjectByType<Enemy>();
         int random = Random.Range(0,FindAnyObjectByType<Spawner>().enemySpawnPoints.Length);
         escape = FindAnyObjectByType<Spawner>().enemySpawnPoints[random];
-        health = 4;
+        health = 1;
         flipped = false;
-
+        ufo_carrying = false;
         audioSource = GetComponent<AudioSource>();  
     }
 
@@ -120,12 +121,17 @@ public class cattle_tracking : MonoBehaviour
             //Invoke("retrack", 2);
         }
 
-        if (cattle.carried && !carrying_cattle)
+        if (ufo_carrying)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, farmer.transform.position, step * 0.5f);
+        }
+
+        else if (cattle.carried && !carrying_cattle)
         {
             transform.position = Vector2.MoveTowards(transform.position, farmer.transform.position, step * 0.5f);
 
         }
-        else
+        else 
         {
             transform.position = Vector2.MoveTowards(transform.position, target_position, step);
         }

@@ -23,69 +23,51 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
+        //DayToNight();
+    }
+    public void DayToNight()
+    {
+        //if(day == false)
+        //{
+        //    if (a < 0.8)
+        //    {
+        //        a += Time.deltaTime / 3;
+        //    }
+        //    else
+        //    {
+        //        return;
+        //    }
+        
+        //}else if(day == true)
+        //{
+        //    if (a > 0)
+        //    {
+        //        a -= Time.deltaTime / 3;
+        //    }
+        //    else
+        //    {
+        //        return;
+        //    }
+        //}
+        //night.a = a;
+        //sr.color = night;
+    }
+    public void ChangeDayTime()
+    {
+        
         if (day)
         {
-            TurnToDay();
-        }
-     
-        if (!day)
-        {
-            TurnToNight();
-
-        }
-        night.a = a;
-        sr.color = night;
-    }
-
-
-    public void TurnToNight()
-    {
-       
-            if (a < 0.8)
-            {
-                a += Time.deltaTime / 3;
-            }
-            else
-            {
-                return;
-            }
-      
-    }
-    public void TurnToDay()
-    {
-        if (a > 0)
-        {
-            a -= Time.deltaTime / 3;
+            //day = false;
         }
         else
         {
-            return;
+            //day = true;
         }
     }
-    public void ChangeDayTime(float a, bool b)
+    public void ChangeTimeInvoke(float a)
     {
-        switch (b)
-        {
-            case true:
-                day = true;
-                break;
-            case false:
-                day = false;
-                break;
-        }
-
-    }
-    public void ChangeTimeInvoke(float a, bool b)
-    {
-        
-       
-        switch (b)
-        {
-            case true: day = true;
-                break;
-            case false: day = false;
-                break;
-        }
+        //Invoke("ChangeDayTime", a);
      
     }
       
