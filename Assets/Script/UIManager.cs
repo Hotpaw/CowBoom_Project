@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     {
         winGame.SetActive(false);
         loseGame.SetActive(false);  
+
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class UIManager : MonoBehaviour
     public void WinGame()
     {
         winGame.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void LoseGame()

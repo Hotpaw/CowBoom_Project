@@ -16,7 +16,7 @@ public class Dynamite : MonoBehaviour
     bool burning = false;
 
     bool hasExploded = false;
-    bool ignitiated = false;
+    
 
 
     AudioSource explosionSound;

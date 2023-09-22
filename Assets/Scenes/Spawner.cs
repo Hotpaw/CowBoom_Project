@@ -15,7 +15,9 @@ public class Spawner : MonoBehaviour
     public bool spawnerActive = true;
     public int DeathCounter;
     public int UfoDeathsToSpawn;
-    
+    public float startTimer;
+    public float GameStart;
+    public bool gameStarted = false;
     
     // Start is called before the first frame update
     void Start()
@@ -25,12 +27,18 @@ public class Spawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
 
-        if (Input.GetKeyDown(KeyCode.F))
+    {
+        startTimer += Time.deltaTime;
+        if(startTimer > GameStart && gameStarted == false)
         {
-            PauseSpawner();
+            gameStarted = true;
+            StartSpawner();
+            DayCycle dayCycle = FindAnyObjectByType<DayCycle>();
+            dayCycle.ChangeTimeInvoke(0, false);
         }
+
+       
         timer += Time.deltaTime;
         if (timer >= cooldown && spawnerActive)
         {
@@ -63,44 +71,30 @@ public class Spawner : MonoBehaviour
         
        
     }
+    public void StartSpawner()
+    {
+
+        spawnerActive = true;
+        timer = 0;
+    }
     public void PauseSpawner()
     {
-        if(spawnerActive)
-        {
-            spawnerActive = false;
-           
-         
-        }
-        else if(!spawnerActive)
-        {
-
-            DayCycle d = FindObjectOfType<DayCycle>();
-            d.ChangeDayTime();
-            timer = 0;
-            spawnerActive = true;
-        }
-
-       
-       
-
-        //ActivateUfo();
-        
-
-
+     
+        spawnerActive = false;
     }
     public void ActivateUfo()
     {
-        
-        if(Ufo.gameObject.activeInHierarchy)
-        {
-            Ufo.SetActive(false);
-            DayCycle d = FindObjectOfType<DayCycle>();
-           
-        }
-        else
-        {
+      
+         
+   
             Ufo.SetActive(true);
-            //ufo_script.restore_health();
-        }
+  
+    }
+    public void InactivateUfo()
+    {
+
+            Ufo.SetActive(false);
+         
+      
     }
 }
