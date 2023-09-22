@@ -19,16 +19,16 @@ public class UFO_tracking : MonoBehaviour
     public int health;
     public int damage_threshold;
     public int stage;
-    public int max_health;
-   
+    int max_health;
+    int health_increase_per_stage = 25;
     Spawner spawner;
     UIManager UI;
     float step;
 
     bool a = true;
-  
+    bool stageSet = false;
     private Animation anim;
-    UFO ufo;
+
 
     AudioSource ufoSound;
 
@@ -40,7 +40,6 @@ public class UFO_tracking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ufo = FindAnyObjectByType<UFO>();
         target = GameObject.FindGameObjectWithTag("Cattle");
         child = GameObject.FindGameObjectWithTag("Cattle");
         cattle = FindAnyObjectByType<cattle_script>();
@@ -49,9 +48,9 @@ public class UFO_tracking : MonoBehaviour
         UI = FindFirstObjectByType<UIManager>();
         spawner = FindObjectOfType<Spawner>();
         ufoSound = GetComponent<AudioSource>();
-        max_health = 20;
+        max_health = 150;
         anim = GetComponent<Animation>();
-        
+        stage = 1;
 
         //health = 90;
     }
@@ -59,9 +58,6 @@ public class UFO_tracking : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Cattle");
-        child = GameObject.FindGameObjectWithTag("Cattle");
-        cattle = FindAnyObjectByType<cattle_script>();
         restore_health();
         healthy = true;
         a = true;
@@ -99,33 +95,8 @@ public class UFO_tracking : MonoBehaviour
                 target_position = transform.position;
             }
             healthy = false;
-           
-         
-            if (a == true)
-            {
-                stage++;
-                if (stage == 1)
-                {
-                    Debug.Log("STAGE 1");
-                   
-                    ufo.ChangeSprite(0);
-                }
-                if (stage == 2)
-                {
-                    Debug.Log("STAGE 2");
-                    GameObject ufosprite = GameObject.FindGameObjectWithTag("UFOSPAWN");
-                    ufo.Hurt();
-                    
-                }if(stage == 3)
-                {
-                    Debug.Log("STAGE 3");
-                    UIManager um = FindAnyObjectByType<UIManager>();
-                    um.WinGame();
-                }
-                a = false;
-               
 
-            }
+             
             cattle.UFO_dropped = true;
             cattle.UFO_lifted = false;
             Invoke("Resume_escape", 3.5f);
@@ -135,13 +106,25 @@ public class UFO_tracking : MonoBehaviour
         if (transform.position == escape.transform.position && health <= damage_threshold)
         {
             
-          
+            if (stage == 1)
+            {
+                stage = 2;
+            }
+            else if (stage == 2)
+            {
+                stage = 3;
+            }
+            if (a == true)
+            {
+                a = false;
+                DayCycle d = FindAnyObjectByType<DayCycle>();
+                d.ChangeTimeInvoke(0);
+                //d.ChangeTimeInvoke(10);
+                Invoke("spawn_activate", 12);
+
+            }
             Debug.Log("deactivating ufo");
-            DayCycle d = FindAnyObjectByType<DayCycle>();
-            d.ChangeTimeInvoke(0, true);
-            spawner.startTimer = 0;
-            spawner.gameStarted = false;
-            spawner.InactivateUfo();
+            spawner.ActivateUfo();
           
         }
 
@@ -166,7 +149,7 @@ public class UFO_tracking : MonoBehaviour
 
     void spawn_activate()
     {
-        spawner.StartSpawner();
+        spawner.PauseSpawner();
     }
 
     private void OnCollisionEnter(Collision other)

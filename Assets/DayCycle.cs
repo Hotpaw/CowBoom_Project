@@ -23,24 +23,13 @@ public class DayCycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (day)
-        {
-            TurnToDay();
-        }
-     
-        if (!day)
-        {
-            TurnToNight();
-
-        }
-        night.a = a;
-        sr.color = night;
+      
+        DayToNight();
     }
-
-
-    public void TurnToNight()
+    public void DayToNight()
     {
-       
+        if(day == false)
+        {
             if (a < 0.8)
             {
                 a += Time.deltaTime / 3;
@@ -49,43 +38,36 @@ public class DayCycle : MonoBehaviour
             {
                 return;
             }
-      
-    }
-    public void TurnToDay()
-    {
-        if (a > 0)
+        
+        }else if(day == true)
         {
-            a -= Time.deltaTime / 3;
+            if (a > 0)
+            {
+                a -= Time.deltaTime / 3;
+            }
+            else
+            {
+                return;
+            }
+        }
+        night.a = a;
+        sr.color = night;
+    }
+    public void ChangeDayTime()
+    {
+        
+        if (day)
+        {
+            day = false;
         }
         else
         {
-            return;
+            day = true;
         }
     }
-    public void ChangeDayTime(float a, bool b)
+    public void ChangeTimeInvoke(float a)
     {
-        switch (b)
-        {
-            case true:
-                day = true;
-                break;
-            case false:
-                day = false;
-                break;
-        }
-
-    }
-    public void ChangeTimeInvoke(float a, bool b)
-    {
-        
-       
-        switch (b)
-        {
-            case true: day = true;
-                break;
-            case false: day = false;
-                break;
-        }
+        Invoke("ChangeDayTime", a);
      
     }
       

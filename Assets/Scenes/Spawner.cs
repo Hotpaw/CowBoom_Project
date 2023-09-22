@@ -15,9 +15,7 @@ public class Spawner : MonoBehaviour
     public bool spawnerActive = true;
     public int DeathCounter;
     public int UfoDeathsToSpawn;
-    public float startTimer;
-    public float GameStart;
-    public bool gameStarted = false;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -27,18 +25,12 @@ public class Spawner : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-
     {
-        startTimer += Time.deltaTime;
-        if(startTimer > GameStart && gameStarted == false)
-        {
-            gameStarted = true;
-            StartSpawner();
-            DayCycle dayCycle = FindAnyObjectByType<DayCycle>();
-            dayCycle.ChangeTimeInvoke(0, false);
-        }
 
-       
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            PauseSpawner();
+        }
         timer += Time.deltaTime;
         if (timer >= cooldown && spawnerActive)
         {
@@ -71,30 +63,44 @@ public class Spawner : MonoBehaviour
         
        
     }
-    public void StartSpawner()
-    {
-
-        spawnerActive = true;
-        timer = 0;
-    }
     public void PauseSpawner()
     {
-     
-        spawnerActive = false;
+        if(spawnerActive)
+        {
+            spawnerActive = false;
+           
+         
+        }
+        else if(!spawnerActive)
+        {
+
+            DayCycle d = FindObjectOfType<DayCycle>();
+            d.ChangeDayTime();
+            timer = 0;
+            spawnerActive = true;
+        }
+
+       
+       
+
+        //ActivateUfo();
+        
+
+
     }
     public void ActivateUfo()
     {
-      
-         
-   
-            Ufo.SetActive(true);
-  
-    }
-    public void InactivateUfo()
-    {
-
+        
+        if(Ufo.gameObject.activeInHierarchy)
+        {
             Ufo.SetActive(false);
-         
-      
+            DayCycle d = FindObjectOfType<DayCycle>();
+           
+        }
+        else
+        {
+            Ufo.SetActive(true);
+            //ufo_script.restore_health();
+        }
     }
 }
